@@ -1,0 +1,26 @@
+{
+  "name": "@osjs/panels",
+  "version": "3.0.0-alpha.1",
+  "description": "OS.js v3 Panels",
+  "main": "index.js",
+  "style": "index.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osjs/osjs-panels.git"
+  },
+  "keywords": [
+    "osjs"
+  ],
+  "author": "Anders Evenrud <andersevenrud@gmail.com>",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "hyperapp": "^1.1.2"
+  },
+  "bugs": {
+    "url": "https://github.com/osjs/osjs-panels/issues"
+  },
+  "homepage": "https://github.com/osjs/osjs-panels#readme"
+}
