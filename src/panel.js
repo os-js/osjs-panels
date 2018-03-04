@@ -72,13 +72,20 @@ export default class Panel extends EventHandler {
    * Initializes the panel
    */
   init() {
+    if (this.inited) {
+      return;
+    }
+    this.inited = true;
+
     this.$element.classList.add('osjs-panel');
 
     this.core.$root.appendChild(this.$element);
 
     this.items.forEach(item => item.init());
 
-    this.inited = true;
+    setTimeout(() => {
+      this.core.emit('osjs/panel:create', this);
+    }, 1);
   }
 
   /**

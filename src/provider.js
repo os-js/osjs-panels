@@ -55,7 +55,6 @@ export default class PanelServiceProvider {
     panel.addItem(new WindowsPanelItem(this.core, panel));
     panel.addItem(new ClockPanelItem(this.core, panel));
     this.panels.push(panel);
-    panel.init();
   }
 
   start() {
