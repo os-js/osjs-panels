@@ -80,9 +80,7 @@ export default class MenuPanelItem extends PanelItem {
         await this.core.make('osjs/session').save();
       }
 
-      this.core.destroy();
-
-      setTimeout(() => window.location.reload(), 1);
+      this.core.make('osjs/auth').logout();
     };
 
     const onclick = (item) => {
