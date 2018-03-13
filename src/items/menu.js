@@ -33,6 +33,10 @@ import PanelItem from '../panel-item';
 
 const defaultIcon = require('../logo-blue-32x32.png');
 
+const getIcon = (m) => m.icon
+  ? `/packages/${m._path}/${m.icon}`
+  : defaultIcon;
+
 const makeTree = (metadata) => {
   const categories = {};
 
@@ -47,7 +51,7 @@ const makeTree = (metadata) => {
     }
 
     categories[cat].items.push({
-      icon: defaultIcon,
+      icon: getIcon(m),
       label: m.name,
       data: {
         name: m.name
