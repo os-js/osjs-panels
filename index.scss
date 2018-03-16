@@ -55,10 +55,7 @@ $base-margin: 1em;
 
   & > div {
     cursor: pointer;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     max-width: 10em;
-    overflow: hidden;
 
     &:not(:last-child) {
       margin-right: $base-margin;
@@ -70,6 +67,9 @@ $base-margin: 1em;
       background-position: 0 50%;
       background-size: 1em;
       padding-left: $base-margin * 1.5;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }
