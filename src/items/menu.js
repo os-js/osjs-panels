@@ -87,11 +87,12 @@ export default class MenuPanelItem extends PanelItem {
       this.core.make('osjs/auth').logout();
     };
 
-    const onclick = (item) => {
+    const onclick = (ev) => {
       const packages = this.core.make('osjs/packages').metadata;
 
       this.core.make('osjs/contextmenu').show({
         menu: makeTree([].concat(packages)),
+        position: ev.target,
         callback: (item) => {
           const {name, action} = item.data;
 
