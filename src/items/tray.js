@@ -27,40 +27,37 @@
  * @author  Anders Evenrud <andersevenrud@gmail.com>
  * @licence Simplified BSD License
  */
-import Panel from './panel';
-import WindowsPanelItem from './items/windows';
-import TrayPanelItem from './items/tray';
-import ClockPanelItem from './items/clock';
-import MenuPanelItem from './items/menu';
 
-/**
- * OS.js Panel Service Provider
- *
- * Provides methods to handle panels on a desktop
- */
-export default class PanelServiceProvider {
+import {h} from 'hyperapp';
+import PanelItem from '../panel-item';
 
-  constructor(core) {
-    this.core = core;
-    this.panels = [];
+export default class TrayPanelItem extends PanelItem {
+
+  init() {
+    if (this.inited) {
+      return;
+    }
+
+    const actions = super.init({
+      tray: this.core.make('osjs/tray').list()
+    }, {
+      setTray: tray => state => ({tray})
+    });
+
+    this.core.on('osjs/tray:update', list => console.error(list));
+    this.core.on('osjs/tray:update', list => actions.setTray(list));
   }
 
-  destroy() {
-    this.panels.forEach(panel => panel.destroy());
-    this.panels = [];
-  }
+  render(state, actions) {
+    const child = entry => h('div', {
+      onclick: ev => entry.handler(ev)
+    }, h('img', {
+      src: entry.icon,
+      title: entry.title
+    }))
 
-  async init() {
-    const panel = new Panel(this.core);
-    panel.addItem(new MenuPanelItem(this.core, panel));
-    panel.addItem(new WindowsPanelItem(this.core, panel));
-    panel.addItem(new TrayPanelItem(this.core, panel));
-    panel.addItem(new ClockPanelItem(this.core, panel));
-    this.panels.push(panel);
-  }
-
-  start() {
-    this.panels.forEach(p => p.init());
+    return super.render('tray', state.tray.map(child));
   }
 
 }
+

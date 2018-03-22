@@ -85,3 +85,20 @@ $base-margin: 1em;
     cursor: pointer;
   }
 }
+
+.osjs-panel-item[data-name=tray] {
+  display: flex;
+
+  & > div {
+    flex: 1 1;
+
+    &:not(:last-child) {
+      margin-right: $base-margin / 2;
+    }
+
+    & > img {
+      height: 1em;
+      cursor: pointer;
+    }
+  }
+}
