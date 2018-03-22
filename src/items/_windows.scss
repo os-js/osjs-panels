@@ -1,4 +1,4 @@
-/*!
+/*
  * OS.js - JavaScript Cloud/Web Desktop Platform
  *
  * Copyright (c) 2011-2018, Anders Evenrud <andersevenrud@gmail.com>
@@ -28,10 +28,27 @@
  * @licence Simplified BSD License
  */
 
-$base-margin: 1em;
+.osjs-panel-item[data-name=windows] {
+  display: flex;
+  flex-grow: 1;
 
-@import "./src/_panel.scss";
-@import "./src/items/_clock.scss";
-@import "./src/items/_menu.scss";
-@import "./src/items/_tray.scss";
-@import "./src/items/_windows.scss";
+  & > div {
+    cursor: pointer;
+    max-width: 10em;
+
+    &:not(:last-child) {
+      margin-right: $base-margin;
+    }
+
+    & > span {
+      display: block;
+      background-repeat: no-repeat;
+      background-position: 0 50%;
+      background-size: 1em;
+      padding-left: $base-margin * 1.5;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-/*!
+/*
  * OS.js - JavaScript Cloud/Web Desktop Platform
  *
  * Copyright (c) 2011-2018, Anders Evenrud <andersevenrud@gmail.com>
@@ -28,10 +28,9 @@
  * @licence Simplified BSD License
  */
 
-$base-margin: 1em;
+.osjs-panel-item[data-name=clock] {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
 
-@import "./src/_panel.scss";
-@import "./src/items/_clock.scss";
-@import "./src/items/_menu.scss";
-@import "./src/items/_tray.scss";
-@import "./src/items/_windows.scss";
