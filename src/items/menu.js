@@ -37,15 +37,23 @@ const getIcon = (m) => m.icon
   ? `/packages/${m._path}/${m.icon}`
   : defaultIcon;
 
-const makeTree = (metadata) => {
+const makeTree = (core, metadata) => {
+  const configuredCategories = core.config('application.categories') || {
+    other: {
+      label: 'Other'
+    }
+  };
+
   const categories = {};
 
   metadata.forEach((m) => {
-    const cat = m.category || '(unknown)';
+    const cat = Object.keys(configuredCategories).find(c => c === m.category) || 'other';
+    const found = configuredCategories[cat];
+
     if (!categories[cat]) {
       categories[cat] = {
         icon: defaultIcon,
-        label: cat,
+        label: found.label,
         items: []
       };
     }
@@ -91,7 +99,7 @@ export default class MenuPanelItem extends PanelItem {
       const packages = this.core.make('osjs/packages').metadata;
 
       this.core.make('osjs/contextmenu').show({
-        menu: makeTree([].concat(packages)),
+        menu: makeTree(this.core, [].concat(packages)),
         position: ev.target,
         callback: (item) => {
           const {name, action} = item.data || {};
