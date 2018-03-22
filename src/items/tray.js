@@ -44,7 +44,6 @@ export default class TrayPanelItem extends PanelItem {
       setTray: tray => state => ({tray})
     });
 
-    this.core.on('osjs/tray:update', list => console.error(list));
     this.core.on('osjs/tray:update', list => actions.setTray(list));
   }
 
