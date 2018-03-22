@@ -98,8 +98,8 @@ export default class WindowsPanelItem extends PanelItem {
       }
     });
 
-    this.core.on('osjs/application:create', (name) => actions.addLauncher(name));
-    this.core.on('osjs/application:created', (name) => actions.removeLauncher(name));
+    this.core.on('osjs/application:launch', (name) => actions.addLauncher(name));
+    this.core.on('osjs/application:launched', (name) => actions.removeLauncher(name));
     this.core.on('osjs/window:destroy', (win) => actions.remove(mapWindow(win)));
     this.core.on('osjs/window:create', (win) => actions.add(mapWindow(win)));
     this.core.on('osjs/window:change', (win) => actions.change(mapWindow(win)));
