@@ -40,9 +40,10 @@ import MenuPanelItem from './items/menu';
  */
 export default class PanelServiceProvider {
 
-  constructor(core) {
+  constructor(core, args = {}) {
     this.core = core;
     this.panels = [];
+    this.registry = args.registry || {};
   }
 
   destroy() {
@@ -51,16 +52,35 @@ export default class PanelServiceProvider {
   }
 
   async init() {
-    const panel = new Panel(this.core);
-    panel.addItem(new MenuPanelItem(this.core, panel));
-    panel.addItem(new WindowsPanelItem(this.core, panel));
-    panel.addItem(new TrayPanelItem(this.core, panel));
-    panel.addItem(new ClockPanelItem(this.core, panel));
-    this.panels.push(panel);
+    this.core.singleton('osjs/panels', () => ({
+      register: (...args) => this._registerPanelItem(...args),
+      create: (...args) => this._createPanel(...args),
+      get: (...args) => this._getPanelItem(...args)
+    }));
+
+    // Default provided panel items
+    this._registerPanelItem('menu', MenuPanelItem);
+    this._registerPanelItem('windows', WindowsPanelItem);
+    this._registerPanelItem('tray', TrayPanelItem);
+    this._registerPanelItem('clock', ClockPanelItem);
   }
 
   start() {
+    this._createPanel();
     this.panels.forEach(p => p.init());
+  }
+
+  _createPanel(options = {}) {
+    const panel = new Panel(this.core, options);
+    this.panels.push(panel);
+  }
+
+  _registerPanelItem(name, classRef) {
+    this.registry[name] = classRef;
+  }
+
+  _getPanelItem(name) {
+    return this.registry[name];
   }
 
 }

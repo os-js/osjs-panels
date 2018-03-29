@@ -51,6 +51,13 @@ export default class Panel extends EventHandler {
     this.inited = false;
     this.destroyed = false;
     this.$element = document.createElement('div');
+
+    // TODO: From options
+    const items = ['menu', 'windows', 'tray', 'clock'];
+    items.forEach(name => {
+      const c = core.make('osjs/panels').get(name);
+      this.addItem(new c(this.core, this));
+    });
   }
 
   /**
