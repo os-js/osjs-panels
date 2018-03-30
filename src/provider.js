@@ -43,7 +43,12 @@ export default class PanelServiceProvider {
   constructor(core, args = {}) {
     this.core = core;
     this.panels = [];
-    this.registry = args.registry || {};
+    this.registry = Object.assign({
+      menu: MenuPanelItem,
+      windows: WindowsPanelItem,
+      tray: TrayPanelItem,
+      clock: ClockPanelItem
+    }, args.registry || {});
   }
 
   destroy() {
@@ -53,34 +58,25 @@ export default class PanelServiceProvider {
 
   async init() {
     this.core.singleton('osjs/panels', () => ({
-      register: (...args) => this._registerPanelItem(...args),
-      create: (...args) => this._createPanel(...args),
-      get: (...args) => this._getPanelItem(...args)
-    }));
+      register: (name, classRef) => {
+        if (this.registry[name]) {
+          console.warn('Overwriting previously registered panel item', name);
+        }
 
-    // Default provided panel items
-    this._registerPanelItem('menu', MenuPanelItem);
-    this._registerPanelItem('windows', WindowsPanelItem);
-    this._registerPanelItem('tray', TrayPanelItem);
-    this._registerPanelItem('clock', ClockPanelItem);
+        this.registry[name] = classRef;
+      },
+      create: (options) => {
+        const panel = new Panel(this.core, options);
+        this.panels.push(panel);
+      },
+      get: (name) => this.registry[name]
+    }));
   }
 
   start() {
-    this._createPanel();
+    this.core.make('osjs/panels').create({});
+
     this.panels.forEach(p => p.init());
-  }
-
-  _createPanel(options = {}) {
-    const panel = new Panel(this.core, options);
-    this.panels.push(panel);
-  }
-
-  _registerPanelItem(name, classRef) {
-    this.registry[name] = classRef;
-  }
-
-  _getPanelItem(name) {
-    return this.registry[name];
   }
 
 }
