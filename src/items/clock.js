@@ -33,6 +33,11 @@ import PanelItem from '../panel-item';
 
 const date = () => (new Date).toLocaleTimeString();
 
+/**
+ * Clock
+ *
+ * @desc Clock Panel Item
+ */
 export default class ClockPanelItem extends PanelItem {
 
   init() {

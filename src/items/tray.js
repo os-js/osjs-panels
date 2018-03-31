@@ -31,6 +31,11 @@
 import {h} from 'hyperapp';
 import PanelItem from '../panel-item';
 
+/**
+ * Tray
+ *
+ * @desc Tray Panel Item
+ */
 export default class TrayPanelItem extends PanelItem {
 
   init() {

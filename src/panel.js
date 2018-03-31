@@ -32,7 +32,9 @@ import PanelItem from './panel-item';
 import EventHandler from './event-handler';
 
 /**
- * OS.js Panel
+ * Panel
+ *
+ * @desc Base Panel Class
  */
 export default class Panel extends EventHandler {
 

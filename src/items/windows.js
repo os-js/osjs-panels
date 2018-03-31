@@ -44,6 +44,11 @@ const mapWindow = win => {
   };
 };
 
+/**
+ * Window List
+ *
+ * @desc Window List Panel Item. Also displays launching applications.
+ */
 export default class WindowsPanelItem extends PanelItem {
 
   init() {

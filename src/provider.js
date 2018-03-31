@@ -34,9 +34,9 @@ import ClockPanelItem from './items/clock';
 import MenuPanelItem from './items/menu';
 
 /**
- * OS.js Panel Service Provider
+ * Panel Service Provider
  *
- * Provides methods to handle panels on a desktop
+ * @desc Provides methods to handle panels on a desktop in OS.js
  */
 export default class PanelServiceProvider {
 

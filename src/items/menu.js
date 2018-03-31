@@ -84,6 +84,11 @@ const makeTree = (core, metadata) => {
   return [...Object.values(categories), ...system];
 };
 
+/**
+ * Menu
+ *
+ * @desc Menu Panel Item
+ */
 export default class MenuPanelItem extends PanelItem {
 
   render(state, actions) {
