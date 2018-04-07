@@ -34,13 +34,14 @@ import PanelItem from '../panel-item';
 const defaultIcon = require('../logo-blue-32x32.png');
 
 const getIcon = (m) => m.icon
-  ? `/packages/${m._path}/${m.icon}`
+  ? `/apps/${m._path}/${m.icon}`
   : defaultIcon;
 
 const makeTree = (core, metadata) => {
   const configuredCategories = core.config('application.categories') || {
     other: {
-      label: 'Other'
+      label: 'Other',
+      icon: {name: 'applications-other'}
     }
   };
 
@@ -52,7 +53,7 @@ const makeTree = (core, metadata) => {
 
     if (!categories[cat]) {
       categories[cat] = {
-        icon: defaultIcon,
+        icon: found.icon ? {name: found.icon} : defaultIcon,
         label: found.label,
         items: []
       };
@@ -101,7 +102,9 @@ export default class MenuPanelItem extends PanelItem {
     };
 
     const onclick = (ev) => {
-      const packages = this.core.make('osjs/packages').metadata;
+      const packages = this.core.make('osjs/packages')
+        .metadata
+        .filter(m => m.type === 'application');
 
       this.core.make('osjs/contextmenu').show({
         menu: makeTree(this.core, [].concat(packages)),
