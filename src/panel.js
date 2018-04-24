@@ -29,7 +29,7 @@
  */
 
 import PanelItem from './panel-item';
-import EventHandler from './event-handler';
+import {EventHandler} from '@osjs/common';
 
 /**
  * Panel

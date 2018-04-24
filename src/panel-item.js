@@ -29,7 +29,7 @@
  */
 
 import {app, h} from 'hyperapp';
-import EventHandler from './event-handler';
+import {EventHandler} from '@osjs/common';
 
 /**
  * OS.js Panel Item
