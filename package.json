@@ -1,6 +1,6 @@
 {
   "name": "@osjs/panels",
-  "version": "3.0.0-alpha.8",
+  "version": "3.0.0-alpha.9",
   "description": "OS.js v3 Panels",
   "main": "index.js",
   "style": "index.scss",
@@ -17,8 +17,8 @@
   "author": "Anders Evenrud <andersevenrud@gmail.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "@osjs/common": "^3.0.0-alpha.1",
-    "hyperapp": "^1.1.2"
+    "@osjs/common": "^3.0.0-alpha.3",
+    "hyperapp": "^1.2.0"
   },
   "bugs": {
     "url": "https://github.com/os-js/osjs-panels/issues"
