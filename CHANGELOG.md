@@ -1,5 +1,10 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.10
+
+* Added npmignore
+* Added CHANGELOG
+
 ## 3.0.0-alpha.9
 
 * Load items from options in Panel
