@@ -43,6 +43,7 @@ export default class PanelServiceProvider {
   constructor(core, args = {}) {
     this.core = core;
     this.panels = [];
+    this.inited = false;
     this.registry = Object.assign({
       menu: MenuPanelItem,
       windows: WindowsPanelItem,
@@ -65,17 +66,38 @@ export default class PanelServiceProvider {
 
         this.registry[name] = classRef;
       },
+
+      removeAll: () => {
+        this.panels.forEach(p => p.destroy());
+        this.panels = [];
+      },
+
+      remove: (panel) => {
+        const index = typeof panel === 'number'
+          ? panel
+          : this.panels.findIndex(p => p === panel);
+
+        if (index >= 0) {
+          this.panels[index].destroy();
+          this.panels.splice(index, 1);
+        }
+      },
+
       create: (options) => {
         const panel = new Panel(this.core, options);
         this.panels.push(panel);
+
+        if (this.inited) {
+          panel.init();
+        }
       },
+
       get: (name) => this.registry[name]
     }));
   }
 
   start() {
-    this.core.make('osjs/panels').create({});
-
+    this.inited = true;
     this.panels.forEach(p => p.init());
   }
 

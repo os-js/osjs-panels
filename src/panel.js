@@ -49,17 +49,18 @@ export default class Panel extends EventHandler {
 
     this.core = core;
     this.options = Object.assign({}, {
-      items: ['menu', 'windows', 'tray', 'clock']
+      items: []
     }, options);
     this.items = [];
     this.inited = false;
     this.destroyed = false;
     this.$element = document.createElement('div');
 
-    this.options.items.forEach(name => {
-      const c = core.make('osjs/panels').get(name);
-      this.addItem(new c(this.core, this));
-    });
+    this.options.items
+      .forEach(({name}) => {
+        const c = core.make('osjs/panels').get(name);
+        this.addItem(new c(this.core, this));
+      });
   }
 
   /**
