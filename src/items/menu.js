@@ -37,6 +37,11 @@ const getIcon = (m) => m.icon
   ? `/apps/${m._path}/${m.icon}`
   : defaultIcon;
 
+const getTitle = item => // TODO
+  item.title && item.title.en_EN
+    ? item.title.en_EN
+    : item.name;
+
 const makeTree = (core, metadata) => {
   const configuredCategories = core.config('application.categories') || {
     other: {
@@ -61,7 +66,7 @@ const makeTree = (core, metadata) => {
 
     categories[cat].items.push({
       icon: getIcon(m),
-      label: m.name,
+      label: getTitle(m),
       data: {
         name: m.name
       }
