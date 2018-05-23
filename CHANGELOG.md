@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.12
+
+* Updated Menu titles (#1)
+
 ## 3.0.0-alpha.11
 
 * Removed static initialization of panels (now done in client)
