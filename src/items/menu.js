@@ -31,6 +31,7 @@
 import {h} from 'hyperapp';
 import PanelItem from '../panel-item';
 
+const menuIcon = require('../logo-white-32x32.png');
 const defaultIcon = require('../logo-blue-32x32.png');
 
 const getIcon = (m) => m.icon
@@ -129,7 +130,12 @@ export default class MenuPanelItem extends PanelItem {
     };
 
     return super.render('menu', [
-      h('span', {onclick}, 'Menu')
+      h('span', {
+        onclick,
+        style: {
+          backgroundImage: `url(${menuIcon})`
+        }
+      }, 'Menu')
     ]);
   }
 

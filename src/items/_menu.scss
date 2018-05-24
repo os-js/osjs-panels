@@ -31,5 +31,9 @@
 .osjs-panel-item[data-name=menu] {
   & > span {
     cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    background-size: 1em;
+    padding-left: $base-margin * 1.5;
   }
 }
