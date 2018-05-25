@@ -49,6 +49,7 @@ export default class Panel extends EventHandler {
 
     this.core = core;
     this.options = Object.assign({}, {
+      ontop: true,
       position: 'top',
       items: []
     }, options);
@@ -91,6 +92,7 @@ export default class Panel extends EventHandler {
 
     this.$element.classList.add('osjs-panel');
     this.$element.setAttribute('data-position', this.options.position);
+    this.$element.setAttribute('data-ontop', String(this.options.ontop));
 
     this.core.$root.appendChild(this.$element);
 

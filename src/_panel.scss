@@ -38,6 +38,10 @@
   left: 0;
   right: 0;
 
+  &[data-ontop=true] {
+    z-index: 16777271;
+  }
+
   &[data-position=top] {
     top: 0;
   }
