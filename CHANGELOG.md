@@ -1,5 +1,11 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.13
+
+* Added ontop panel attribute
+* Support multiple panel positions
+* Added icon to menu
+
 ## 3.0.0-alpha.12
 
 * Updated Menu titles (#1)
