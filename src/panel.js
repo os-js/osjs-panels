@@ -49,8 +49,10 @@ export default class Panel extends EventHandler {
 
     this.core = core;
     this.options = Object.assign({}, {
+      position: 'top',
       items: []
     }, options);
+
     this.items = [];
     this.inited = false;
     this.destroyed = false;
@@ -88,6 +90,7 @@ export default class Panel extends EventHandler {
     this.inited = true;
 
     this.$element.classList.add('osjs-panel');
+    this.$element.setAttribute('data-position', this.options.position);
 
     this.core.$root.appendChild(this.$element);
 
