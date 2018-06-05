@@ -53,7 +53,7 @@ const makeTree = (core, metadata) => {
 
   const categories = {};
 
-  metadata.forEach((m) => {
+  metadata.filter(m => m.hidden !== true).forEach((m) => {
     const cat = Object.keys(configuredCategories).find(c => c === m.category) || 'other';
     const found = configuredCategories[cat];
 
