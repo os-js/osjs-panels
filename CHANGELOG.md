@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.14
+
+* Hide 'hidden' packages from launch menu (#2)
+
 ## 3.0.0-alpha.13
 
 * Added ontop panel attribute
