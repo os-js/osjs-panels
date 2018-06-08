@@ -38,10 +38,9 @@ const getIcon = (m) => m.icon
   ? `/apps/${m._path}/${m.icon}`
   : defaultIcon;
 
-const getTitle = item => // TODO
-  item.title && item.title.en_EN
-    ? item.title.en_EN
-    : item.name;
+const getTitle = (core, item) => core
+  .make('osjs/locale')
+  .translatableFlat(item.title, item.name);
 
 const makeTree = (core, metadata) => {
   const configuredCategories = core.config('application.categories') || {
@@ -67,7 +66,7 @@ const makeTree = (core, metadata) => {
 
     categories[cat].items.push({
       icon: getIcon(m),
-      label: getTitle(m),
+      label: getTitle(core, m),
       data: {
         name: m.name
       }
