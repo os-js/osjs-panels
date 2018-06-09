@@ -1,5 +1,10 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.15
+
+* Add locale support for clock
+* Added locale support for menu applications
+
 ## 3.0.0-alpha.14
 
 * Hide 'hidden' packages from launch menu (#2)
