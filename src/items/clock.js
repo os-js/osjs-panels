@@ -31,8 +31,6 @@
 import {h} from 'hyperapp';
 import PanelItem from '../panel-item';
 
-const date = () => (new Date).toLocaleTimeString();
-
 /**
  * Clock
  *
@@ -41,6 +39,9 @@ const date = () => (new Date).toLocaleTimeString();
 export default class ClockPanelItem extends PanelItem {
 
   init() {
+    const {format} = this.core.make('osjs/locale');
+    const date = () => format(new Date(), 'longTime');
+
     if (this.inited) {
       return;
     }
