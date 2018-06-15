@@ -38,19 +38,16 @@ const getIcon = (m) => m.icon
   ? `/apps/${m._path}/${m.icon}`
   : defaultIcon;
 
-const getTitle = (core, item) => core
-  .make('osjs/locale')
+const getTitle = (locale, item) => locale
   .translatableFlat(item.title, item.name);
 
-const makeTree = (core, metadata) => {
-  const configuredCategories = core.config('application.categories') || {
-    other: {
-      label: 'Other',
-      icon: {name: 'applications-other'}
-    }
-  };
+const getCategory = (locale, cat) => locale
+  .translate(cat);
 
+const makeTree = (core, metadata) => {
+  const configuredCategories = core.config('application.categories');
   const categories = {};
+  const locale = core.make('osjs/locale');
 
   metadata.filter(m => m.hidden !== true).forEach((m) => {
     const cat = Object.keys(configuredCategories).find(c => c === m.category) || 'other';
@@ -59,14 +56,14 @@ const makeTree = (core, metadata) => {
     if (!categories[cat]) {
       categories[cat] = {
         icon: found.icon ? {name: found.icon} : defaultIcon,
-        label: found.label,
+        label: getCategory(locale, found.label),
         items: []
       };
     }
 
     categories[cat].items.push({
       icon: getIcon(m),
-      label: getTitle(core, m),
+      label: getTitle(locale, m),
       data: {
         name: m.name
       }
