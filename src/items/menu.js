@@ -105,8 +105,7 @@ export default class MenuPanelItem extends PanelItem {
 
     const onclick = (ev) => {
       const packages = this.core.make('osjs/packages')
-        .metadata
-        .filter(m => m.type === 'application');
+        .getPackages(m => m.type === 'application');
 
       this.core.make('osjs/contextmenu').show({
         menu: makeTree(this.core, [].concat(packages)),
