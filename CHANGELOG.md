@@ -1,5 +1,13 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.16
+
+* Updated usage og PM provider in Menu item
+* Add locale for application categories
+* Removed unwanted dotfile
+* Added missing .eslintrc
+* Added missing .gitignore
+
 ## 3.0.0-alpha.15
 
 * Add locale support for clock
