@@ -37,6 +37,7 @@ const mapWindow = win => {
     icon: win.state.icon,
     title: win.state.title,
     focused: win.state.focused,
+    attributes: Object.assign({}, win.attributes),
     raise: () => {
       win.raise();
       win.focus();
@@ -56,9 +57,14 @@ export default class WindowsPanelItem extends PanelItem {
       return;
     }
 
+    const filter = win => typeof win.attributes.visibility === 'undefined' ||
+      win.attributes.visibility === 'global';
+
     const actions = super.init({
       launchers: [],
-      windows: OSjs.getWindows().map(mapWindow)
+      windows: OSjs.getWindows()
+        .filter(filter)
+        .map(mapWindow)
     }, {
       add: win => state => {
         const found = state.windows.find(w => w.wid === win.wid);
@@ -66,7 +72,10 @@ export default class WindowsPanelItem extends PanelItem {
           return state;
         }
 
-        const windows = state.windows.concat([win]);
+        const windows = state.windows
+          .filter(filter)
+          .concat([win]);
+
         return {windows};
       },
 
