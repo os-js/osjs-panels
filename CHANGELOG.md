@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.17
+
+* Window list now respects 'visibility' attribute
+
 ## 3.0.0-alpha.16
 
 * Updated usage og PM provider in Menu item
