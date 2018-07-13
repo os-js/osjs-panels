@@ -30,11 +30,13 @@
 
 .osjs-panel-item[data-name=windows] {
   display: flex;
-  flex-grow: 1;
+  flex: 1 1;
+  overflow: hidden;
 
   & > div {
     cursor: pointer;
-    max-width: 10em;
+    flex: initial;
+    min-width: 4em;
 
     &:not(:last-child) {
       margin-right: $base-margin;
