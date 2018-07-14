@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.19
+
+* Added contextmenu + position select to panels
+
 ## 3.0.0-alpha.18
 
 * Window list item now automatically expands items
