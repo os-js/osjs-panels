@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.18
+
+* Window list item now automatically expands items
+
 ## 3.0.0-alpha.17
 
 * Window list now respects 'visibility' attribute
