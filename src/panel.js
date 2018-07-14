@@ -44,7 +44,7 @@ export default class Panel extends EventHandler {
    * @param {Core} core Core reference
    * @param {Object} options Options
    */
-  constructor(core, options = {}) {
+  constructor(core, options = {}, index = -1) {
     super('Panel');
 
     this.core = core;
@@ -54,6 +54,7 @@ export default class Panel extends EventHandler {
       items: []
     }, options);
 
+    this.index = index;
     this.items = [];
     this.inited = false;
     this.destroyed = false;
@@ -91,6 +92,24 @@ export default class Panel extends EventHandler {
     this.inited = true;
 
     this.$element.classList.add('osjs-panel');
+    this.$element.classList.add('osjs__contextmenu');
+    this.$element.addEventListener('contextmenu', ev => {
+      ev.preventDefault();
+
+      this.core.make('osjs/contextmenu').show({
+        position: ev,
+        menu: [{
+          label: 'Panel position',
+          items: [{
+            label: 'Top',
+            onclick: () => this.setPosition('top')
+          }, {
+            label: 'Bottom',
+            onclick: () => this.setPosition('bottom')
+          }]
+        }]
+      });
+    });
     this.$element.setAttribute('data-position', this.options.position);
     this.$element.setAttribute('data-ontop', String(this.options.ontop));
 
@@ -120,4 +139,18 @@ export default class Panel extends EventHandler {
     }
   }
 
+  setPosition(position) {
+    const settings = this.core.make('osjs/settings');
+    const defaults = this.core.config('desktop.settings.panels');
+    const desktop = this.core.make('osjs/desktop');
+
+    const panels = settings.get('osjs/desktop', 'panels', defaults)
+      .map((p, i) => i === this.index ? Object.assign({}, p, {
+        position
+      }) : p);
+
+    return Promise.resolve(settings.set('osjs/desktop', 'panels', panels))
+      .then(() => settings.save())
+      .then(update => desktop.applySettings());
+  }
 }

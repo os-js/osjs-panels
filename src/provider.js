@@ -84,7 +84,7 @@ export default class PanelServiceProvider {
       },
 
       create: (options) => {
-        const panel = new Panel(this.core, options);
+        const panel = new Panel(this.core, options, this.panels.length);
         this.panels.push(panel);
 
         if (this.inited) {
