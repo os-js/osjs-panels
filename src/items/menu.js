@@ -71,6 +71,8 @@ const makeTree = (core, metadata) => {
   });
 
   const system = [{
+    type: 'separator'
+  }, {
     icon: defaultIcon,
     label: 'Save Session & Log Out',
     data: {
