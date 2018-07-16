@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.21
+
+* Added separator to Menu
+
 ## 3.0.0-alpha.20
 
 * Better settings storage handling
