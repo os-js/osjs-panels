@@ -44,7 +44,7 @@ export default class Panel extends EventHandler {
    * @param {Core} core Core reference
    * @param {Object} options Options
    */
-  constructor(core, options = {}, index = -1) {
+  constructor(core, options = {}) {
     super('Panel');
 
     this.core = core;
@@ -54,7 +54,6 @@ export default class Panel extends EventHandler {
       items: []
     }, options);
 
-    this.index = index;
     this.items = [];
     this.inited = false;
     this.destroyed = false;
@@ -140,17 +139,12 @@ export default class Panel extends EventHandler {
   }
 
   setPosition(position) {
-    const settings = this.core.make('osjs/settings');
-    const defaults = this.core.config('desktop.settings.panels');
-    const desktop = this.core.make('osjs/desktop');
+    this.options.position = position;
 
-    const panels = settings.get('osjs/desktop', 'panels', defaults)
-      .map((p, i) => i === this.index ? Object.assign({}, p, {
-        position
-      }) : p);
-
-    return Promise.resolve(settings.set('osjs/desktop', 'panels', panels))
-      .then(() => settings.save())
-      .then(update => desktop.applySettings());
+    return this.core.make('osjs/panels').save()
+      .then(() => {
+        const desktop = this.core.make('osjs/desktop');
+        return desktop.applySettings();
+      });
   }
 }

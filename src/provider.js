@@ -84,12 +84,20 @@ export default class PanelServiceProvider {
       },
 
       create: (options) => {
-        const panel = new Panel(this.core, options, this.panels.length);
+        const panel = new Panel(this.core, options);
         this.panels.push(panel);
 
         if (this.inited) {
           panel.init();
         }
+      },
+
+      save: () => {
+        const settings = this.core.make('osjs/settings');
+        const panels = this.panels.map(panel => panel.options);
+
+        return Promise.resolve(settings.set('osjs/desktop', 'panels', panels))
+          .then(() => settings.save());
       },
 
       get: (name) => this.registry[name]
