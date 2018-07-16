@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.20
+
+* Better settings storage handling
+
 ## 3.0.0-alpha.19
 
 * Added contextmenu + position select to panels
