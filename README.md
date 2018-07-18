@@ -13,4 +13,6 @@
 
 This is the Panels module for OS.js v3
 
+[![Build Status](https://travis-ci.org/os-js/osjs-panels.svg?branch=master)](https://travis-ci.org/os-js/osjs-panels)
+
 **PLEASE NOTE THAT THIS IS AN ALPHA PRE-RELEASE AND SUBJECT TO CHANGE WITHOUT NOTICE**
