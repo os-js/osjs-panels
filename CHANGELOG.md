@@ -1,5 +1,11 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.22
+
+* Added travis-ci badge to README
+* Lint pass
+* Added initial travis-ci config
+
 ## 3.0.0-alpha.21
 
 * Added separator to Menu

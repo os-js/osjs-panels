@@ -1,6 +1,6 @@
 {
   "name": "@osjs/panels",
-  "version": "3.0.0-alpha.21",
+  "version": "3.0.0-alpha.22",
   "description": "OS.js v3 Panels",
   "main": "index.js",
   "style": "index.scss",
@@ -19,7 +19,7 @@
   "author": "Anders Evenrud <andersevenrud@gmail.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "@osjs/common": "^3.0.0-alpha.6",
+    "@osjs/common": "^3.0.0-alpha.13",
     "hyperapp": "^1.2.0"
   },
   "devDependencies": {
