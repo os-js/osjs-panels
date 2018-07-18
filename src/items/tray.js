@@ -58,7 +58,7 @@ export default class TrayPanelItem extends PanelItem {
     }, h('img', {
       src: entry.icon,
       title: entry.title
-    }))
+    }));
 
     return super.render('tray', state.tray.map(child));
   }
