@@ -37,6 +37,7 @@
   position: absolute;
   left: 0;
   right: 0;
+  line-height: normal;
 
   &[data-ontop=true] {
     z-index: 16777271;
