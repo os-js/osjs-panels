@@ -28,6 +28,7 @@
  * @licence Simplified BSD License
  */
 
+import './index.scss';
 import PanelServiceProvider from './src/provider';
 import WindowsPanelItem from './src/items/windows';
 import TrayPanelItem from './src/items/tray';
