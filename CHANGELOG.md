@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.24
+
+* Prebuild npm package
+
 ## 3.0.0-alpha.23
 
 * Fixed text cut-off in certain areas
