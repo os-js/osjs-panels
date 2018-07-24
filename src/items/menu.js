@@ -31,7 +31,7 @@
 import {h} from 'hyperapp';
 import PanelItem from '../panel-item';
 
-//const menuIcon = require('../logo-white-32x32.png');
+// const menuIcon = require('../logo-white-32x32.png');
 const menuIcon = require('../logo-blue-32x32.png');
 const defaultIcon = require('../logo-blue-32x32.png');
 
