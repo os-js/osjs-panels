@@ -79,14 +79,13 @@ export default class WindowsPanelItem extends PanelItem {
         return {windows};
       },
 
-      remove: win => state => {
-        const windows = state.windows;
-        const foundIndex = state.windows.findIndex(w => w.wid === win.wid);
+      remove: win => ({windows}) => {
+        const foundIndex = windows.findIndex(w => w.wid === win.wid);
         if (foundIndex !== -1) {
           windows.splice(foundIndex, 1);
-        }
 
-        return {windows};
+          return {windows};
+        }
       },
 
       change: win => state => {
@@ -112,11 +111,25 @@ export default class WindowsPanelItem extends PanelItem {
       }
     });
 
-    this.core.on('osjs/application:launch', (name) => actions.addLauncher(name));
-    this.core.on('osjs/application:launched', (name) => actions.removeLauncher(name));
-    this.core.on('osjs/window:destroy', (win) => actions.remove(mapWindow(win)));
-    this.core.on('osjs/window:create', (win) => actions.add(mapWindow(win)));
-    this.core.on('osjs/window:change', (win) => actions.change(mapWindow(win)));
+    const onlaunch = (name) => actions.addLauncher(name);
+    const onlaunched = (name) => actions.removeLauncher(name);
+    const ondestroy = (win) => actions.remove(mapWindow(win));
+    const oncreate = (win) => actions.add(mapWindow(win));
+    const onchange = (win) => actions.change(mapWindow(win));
+
+    this.core.on('osjs/application:launch', onlaunch);
+    this.core.on('osjs/application:launched', onlaunched);
+    this.core.on('osjs/window:destroy', ondestroy);
+    this.core.on('osjs/window:create', oncreate);
+    this.core.on('osjs/window:change', onchange);
+
+    this.on('destroy', () => {
+      this.core.off('osjs/application:launch', onlaunch);
+      this.core.off('osjs/application:launched', onlaunched);
+      this.core.off('osjs/window:destroy', ondestroy);
+      this.core.off('osjs/window:create', oncreate);
+      this.core.off('osjs/window:change', onchange);
+    });
   }
 
   render(state, actions) {
