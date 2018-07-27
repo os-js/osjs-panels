@@ -1,5 +1,12 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.26
+
+* Updated window listing item
+* Correctly destroy panel items on #destroy
+* Separate tray click events
+* Fixed eslint comment warnings
+
 ## 3.0.0-alpha.25
 
 * Temporarily change to blue image in menu

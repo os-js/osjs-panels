@@ -1,6 +1,6 @@
 {
   "name": "@osjs/panels",
-  "version": "3.0.0-alpha.25",
+  "version": "3.0.0-alpha.26",
   "description": "OS.js v3 Panels",
   "main": "dist/main.js",
   "module": "dist/main.js",
@@ -20,7 +20,7 @@
     "watch": "webpack --watch",
     "eslint": "eslint index.js src/**/*.js",
     "stylelint": "stylelint index.scss src/**/*.scss",
-    "prepublishOnly": "npm run eslint && npm run stylelint && rm ./dist/* && npm run build"
+    "prepublishOnly": "npm run eslint && npm run stylelint && rm ./dist/* && NODE_ENV=production npm run build"
   },
   "repository": {
     "type": "git",
