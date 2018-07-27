@@ -73,6 +73,16 @@ export default class Panel extends EventHandler {
     if (this.destroyed) {
       return;
     }
+
+    this.items = this.items.filter(item => {
+      try {
+        item.destroy();
+      } catch (e) {
+        console.warn(e);
+      }
+      return false;
+    });
+
     this.destroyed = true;
     this.emit('destroy');
     this.core.emit('osjs/panel:destroy', this);
