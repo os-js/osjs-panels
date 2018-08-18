@@ -30,6 +30,7 @@
 
 import {h} from 'hyperapp';
 import PanelItem from '../panel-item';
+import * as languages from '../locales';
 
 // const menuIcon = require('../logo-white-32x32.png');
 const menuIcon = require('../logo-blue-32x32.png');
@@ -45,7 +46,7 @@ const getTitle = (locale, item) => locale
 const getCategory = (locale, cat) => locale
   .translate(cat);
 
-const makeTree = (core, metadata) => {
+const makeTree = (core, __, metadata) => {
   const configuredCategories = core.config('application.categories');
   const categories = {};
   const locale = core.make('osjs/locale');
@@ -75,13 +76,13 @@ const makeTree = (core, metadata) => {
     type: 'separator'
   }, {
     icon: defaultIcon,
-    label: 'Save Session & Log Out',
+    label: __('LBL_SAVE_AND_LOG_OUT'),
     data: {
       action: 'saveAndLogOut'
     }
   }, {
     icon: defaultIcon,
-    label: 'Log Out',
+    label: __('LBL_LOG_OUT'),
     data: {
       action: 'logOut'
     }
@@ -98,6 +99,9 @@ const makeTree = (core, metadata) => {
 export default class MenuPanelItem extends PanelItem {
 
   render(state, actions) {
+    const _ = this.core.make('osjs/locale').translate;
+    const __ = this.core.make('osjs/locale').translatable(languages);
+
     const logout = async (save) => {
       if (save) {
         await this.core.make('osjs/session').save();
@@ -111,7 +115,7 @@ export default class MenuPanelItem extends PanelItem {
         .getPackages(m => m.type === 'application');
 
       this.core.make('osjs/contextmenu').show({
-        menu: makeTree(this.core, [].concat(packages)),
+        menu: makeTree(this.core, __, [].concat(packages)),
         position: ev.target,
         callback: (item) => {
           const {name, action} = item.data || {};
@@ -133,7 +137,7 @@ export default class MenuPanelItem extends PanelItem {
         style: {
           backgroundImage: `url(${menuIcon})`
         }
-      }, 'Menu')
+      }, _('LBL_MENU'))
     ]);
   }
 

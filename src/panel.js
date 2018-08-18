@@ -29,6 +29,7 @@
  */
 
 import PanelItem from './panel-item';
+import * as languages from './locales';
 import {EventHandler} from '@osjs/common';
 
 /**
@@ -100,6 +101,9 @@ export default class Panel extends EventHandler {
     }
     this.inited = true;
 
+    const _ = this.core.make('osjs/locale').translate;
+    const __ = this.core.make('osjs/locale').translatable(languages);
+
     this.$element.classList.add('osjs-panel');
     this.$element.classList.add('osjs__contextmenu');
     this.$element.addEventListener('contextmenu', ev => {
@@ -108,13 +112,13 @@ export default class Panel extends EventHandler {
       this.core.make('osjs/contextmenu').show({
         position: ev,
         menu: [{
-          label: 'Panel position',
+          label: __('LBL_PANEL_POSITION'),
           items: [{
-            label: 'Top',
-            onclick: () => this.setPosition('top')
+            label: _('LBL_TOP'),
+            onclick: () => this.setPosition('LBL_TOP')
           }, {
-            label: 'Bottom',
-            onclick: () => this.setPosition('bottom')
+            label: _('LBL_BOTTOM'),
+            onclick: () => this.setPosition('LBL_BOTTOM')
           }]
         }]
       });
