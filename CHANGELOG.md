@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.27
+
+* Added localization
+
 ## 3.0.0-alpha.26
 
 * Updated window listing item
