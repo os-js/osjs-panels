@@ -1,5 +1,10 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.28
+
+* Updated dependencies
+* Updated some metadata usage
+
 ## 3.0.0-alpha.27
 
 * Added localization
