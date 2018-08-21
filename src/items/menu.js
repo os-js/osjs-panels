@@ -37,7 +37,7 @@ const menuIcon = require('../logo-blue-32x32.png');
 const defaultIcon = require('../logo-blue-32x32.png');
 
 const getIcon = (m) => m.icon
-  ? `/apps/${m._path}/${m.icon}`
+  ? `/apps/${m.name}/${m.icon}`
   : defaultIcon;
 
 const getTitle = (locale, item) => locale
@@ -112,7 +112,7 @@ export default class MenuPanelItem extends PanelItem {
 
     const onclick = (ev) => {
       const packages = this.core.make('osjs/packages')
-        .getPackages(m => m.type === 'application');
+        .getPackages(m => (!m.type || m.type === 'application'));
 
       this.core.make('osjs/contextmenu').show({
         menu: makeTree(this.core, __, [].concat(packages)),
