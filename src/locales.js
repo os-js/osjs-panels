@@ -25,6 +25,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * @author  Anders Evenrud <andersevenrud@gmail.com>
+ *          Nguyễn Anh Khoa <khoaakt@gmail.com>
  * @licence Simplified BSD License
  */
 
@@ -46,4 +47,14 @@ export const nb_NO = {
   LBL_PANEL_POSITION: 'Panelposisjon',
   LBL_SAVE_AND_LOG_OUT: 'Lagre Sessjon & Logg Ut',
   LBL_LOG_OUT: 'Logg Ut'
+};
+
+export const vi_VN = {
+  LBL_PANEL_ALL: 'Thêm panel',
+  LBL_PANEL_REMOVE: 'Xóa panel',
+  LBL_PANELITEM_ADD: 'Thêm mục panel',
+  LBL_PANELITEM_REMOVE: 'Xóa mục panel',
+  LBL_PANEL_POSITION: 'Vị trí panel',
+  LBL_SAVE_AND_LOG_OUT: 'Lưu phiên & Đăng xuất',
+  LBL_LOG_OUT: 'Đăng xuất'
 };
