@@ -58,3 +58,4 @@ export const vi_VN = {
   LBL_SAVE_AND_LOG_OUT: 'Lưu phiên & Đăng xuất',
   LBL_LOG_OUT: 'Đăng xuất'
 };
+
