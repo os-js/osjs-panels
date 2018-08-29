@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.29
+
+* Added vi_VN locales (#3)
+
 ## 3.0.0-alpha.28
 
 * Updated dependencies
