@@ -121,7 +121,7 @@ export default class MenuPanelItem extends PanelItem {
           const {name, action} = item.data || {};
 
           if (name) {
-            this.core.make('osjs/package', name);
+            this.core.run(name);
           } else if (action === 'saveAndLogOut') {
             logout(true);
           } else if (action === 'logOut') {
