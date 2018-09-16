@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.30
+
+* Updated launching in application menu
+
 ## 3.0.0-alpha.29
 
 * Added vi_VN locales (#3)
