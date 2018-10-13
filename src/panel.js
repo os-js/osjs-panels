@@ -115,10 +115,10 @@ export default class Panel extends EventHandler {
           label: __('LBL_PANEL_POSITION'),
           items: [{
             label: _('LBL_TOP'),
-            onclick: () => this.setPosition('LBL_TOP')
+            onclick: () => this.setPosition('top')
           }, {
             label: _('LBL_BOTTOM'),
-            onclick: () => this.setPosition('LBL_BOTTOM')
+            onclick: () => this.setPosition('bottom')
           }]
         }]
       });
