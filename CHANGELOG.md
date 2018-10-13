@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.34
+
+* Fixed positioning
+
 ## 3.0.0-alpha.33
 
 * Updated dependencies
