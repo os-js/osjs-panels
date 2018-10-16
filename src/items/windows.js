@@ -57,12 +57,13 @@ export default class WindowsPanelItem extends PanelItem {
       return;
     }
 
-    const filter = win => typeof win.attributes.visibility === 'undefined' ||
+    const filter = win => !win.inited || !win.rendered ||
+      typeof win.attributes.visibility === 'undefined' ||
       win.attributes.visibility === 'global';
 
     const actions = super.init({
       launchers: [],
-      windows: OSjs.getWindows()
+      windows: this.core.make('osjs/windows').list()
         .filter(filter)
         .map(mapWindow)
     }, {
@@ -120,14 +121,14 @@ export default class WindowsPanelItem extends PanelItem {
     this.core.on('osjs/application:launch', onlaunch);
     this.core.on('osjs/application:launched', onlaunched);
     this.core.on('osjs/window:destroy', ondestroy);
-    this.core.on('osjs/window:create', oncreate);
+    this.core.on('osjs/window:render', oncreate);
     this.core.on('osjs/window:change', onchange);
 
     this.on('destroy', () => {
       this.core.off('osjs/application:launch', onlaunch);
       this.core.off('osjs/application:launched', onlaunched);
       this.core.off('osjs/window:destroy', ondestroy);
-      this.core.off('osjs/window:create', oncreate);
+      this.core.off('osjs/window:render', oncreate);
       this.core.off('osjs/window:change', onchange);
     });
   }
