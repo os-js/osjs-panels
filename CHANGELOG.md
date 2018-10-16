@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.35
+
+* Some updates to window list panel item
+
 ## 3.0.0-alpha.34
 
 * Fixed positioning
