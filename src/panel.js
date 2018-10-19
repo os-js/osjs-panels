@@ -58,7 +58,7 @@ export default class Panel extends EventHandler {
     this.items = [];
     this.inited = false;
     this.destroyed = false;
-    this.$element = document.createElement('div');
+    this.$element = null;
 
     this.options.items
       .forEach(({name}) => {
@@ -85,6 +85,7 @@ export default class Panel extends EventHandler {
     });
 
     this.destroyed = true;
+    this.inited = false;
     this.emit('destroy');
     this.core.emit('osjs/panel:destroy', this);
 
@@ -99,11 +100,13 @@ export default class Panel extends EventHandler {
     if (this.inited) {
       return;
     }
+    this.destroyed = false;
     this.inited = true;
 
     const _ = this.core.make('osjs/locale').translate;
     const __ = this.core.make('osjs/locale').translatable(languages);
 
+    this.$element = document.createElement('div');
     this.$element.classList.add('osjs-panel');
     this.$element.classList.add('osjs__contextmenu');
     this.$element.addEventListener('contextmenu', ev => {
