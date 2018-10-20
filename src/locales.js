@@ -26,6 +26,7 @@
  *
  * @author  Anders Evenrud <andersevenrud@gmail.com>
  *          Nguyễn Anh Khoa <khoaakt@gmail.com>
+            Julien Gomes Dias <abld@abld.info>
  * @licence Simplified BSD License
  */
 
@@ -37,6 +38,16 @@ export const en_EN = {
   LBL_PANEL_POSITION: 'Panel Position',
   LBL_SAVE_AND_LOG_OUT: 'Save Session & Log Out',
   LBL_LOG_OUT: 'Log Out'
+};
+
+export const fr_FR = {
+  LBL_PANEL_ALL: 'Ajouter le panneau',
+  LBL_PANEL_REMOVE: 'Supprimer le panneau',
+  LBL_PANELITEM_ADD: 'Ajouter des éléments au panneau',
+  LBL_PANELITEM_REMOVE: 'Supprimer des éléments au panneau',
+  LBL_PANEL_POSITION: 'La position du panneau',
+  LBL_SAVE_AND_LOG_OUT: 'Sauvegarder la session et se déconnecter',
+  LBL_LOG_OUT: 'Se déconnecter'
 };
 
 export const nb_NO = {
