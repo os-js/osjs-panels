@@ -26,6 +26,7 @@
  *
  * @author  Anders Evenrud <andersevenrud@gmail.com>
  *          Nguyễn Anh Khoa <khoaakt@gmail.com>
+            Julien Gomes Dias <abld@abld.info>
  * @licence Simplified BSD License
  */
 
