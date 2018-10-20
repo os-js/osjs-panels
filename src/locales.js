@@ -39,6 +39,16 @@ export const en_EN = {
   LBL_LOG_OUT: 'Log Out'
 };
 
+export const fr_FR = {
+  LBL_PANEL_ALL: 'Ajouter le panneau',
+  LBL_PANEL_REMOVE: 'Supprimer le panneau',
+  LBL_PANELITEM_ADD: 'Ajouter des éléments au panneau',
+  LBL_PANELITEM_REMOVE: 'Supprimer des éléments au panneau',
+  LBL_PANEL_POSITION: 'La position du panneau',
+  LBL_SAVE_AND_LOG_OUT: 'Sauvegarder la session et se déconnecter',
+  LBL_LOG_OUT: 'Se déconnecter'
+};
+
 export const nb_NO = {
   LBL_PANEL_ALL: 'Legg til panel',
   LBL_PANEL_REMOVE: 'Fjern panel',
