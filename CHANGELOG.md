@@ -1,5 +1,10 @@
 # Changelog for osjs-panels
 
+## 3.0.0-alpha.36
+
+* Added French (fr_FR) translations (#4)
+* Updated some construction and destruction handling
+
 ## 3.0.0-alpha.35
 
 * Some updates to window list panel item

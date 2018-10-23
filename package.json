@@ -1,6 +1,6 @@
 {
   "name": "@osjs/panels",
-  "version": "3.0.0-alpha.35",
+  "version": "3.0.0-alpha.36",
   "description": "OS.js v3 Panels",
   "main": "dist/main.js",
   "module": "dist/main.js",
