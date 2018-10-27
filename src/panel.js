@@ -30,14 +30,14 @@
 
 import PanelItem from './panel-item';
 import * as languages from './locales';
-import {EventHandler} from '@osjs/common';
+import {EventEmitter} from '@osjs/event-emitter';
 
 /**
  * Panel
  *
  * @desc Base Panel Class
  */
-export default class Panel extends EventHandler {
+export default class Panel extends EventEmitter {
 
   /**
    * Create panel

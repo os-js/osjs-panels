@@ -70,7 +70,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)\/(?!@osjs)/,
+        exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader'
         }

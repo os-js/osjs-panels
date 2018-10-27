@@ -29,13 +29,13 @@
  */
 
 import {app, h} from 'hyperapp';
-import {EventHandler} from '@osjs/common';
+import {EventEmitter} from '@osjs/event-emitter';
 
 /**
  * OS.js Panel Item
  * @see {Panel}
  */
-export default class PanelItem extends EventHandler {
+export default class PanelItem extends EventEmitter {
 
   /**
    * Create panel item
