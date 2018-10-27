@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.1
+
+* Removed @osjs/common
+
 ## 3.0.0-alpha.36
 
 * Added French (fr_FR) translations (#4)
