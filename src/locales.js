@@ -27,6 +27,7 @@
  * @author  Anders Evenrud <andersevenrud@gmail.com>
  *          Nguyễn Anh Khoa <khoaakt@gmail.com>
             Julien Gomes Dias <abld@abld.info>
+            Filip Š <projects@filips.si>
  * @licence Simplified BSD License
  */
 
@@ -60,7 +61,7 @@ export const nb_NO = {
   LBL_LOG_OUT: 'Logg Ut'
 };
 
-export const en_EN = {
+export const sl_SI = {
   LBL_PANEL_ALL: 'Dodaj ploščo',
   LBL_PANEL_REMOVE: 'Odstrani ploščo',
   LBL_PANELITEM_ADD: 'Dodaj element plošče',
