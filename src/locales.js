@@ -60,6 +60,16 @@ export const nb_NO = {
   LBL_LOG_OUT: 'Logg Ut'
 };
 
+export const en_EN = {
+  LBL_PANEL_ALL: 'Dodaj ploščo',
+  LBL_PANEL_REMOVE: 'Odstrani ploščo',
+  LBL_PANELITEM_ADD: 'Dodaj element plošče',
+  LBL_PANELITEM_REMOVE: 'Odstrani element plošče',
+  LBL_PANEL_POSITION: 'Položaj plošče',
+  LBL_SAVE_AND_LOG_OUT: 'Shranitev seje & Odjava',
+  LBL_LOG_OUT: 'Odjava'
+};
+
 export const vi_VN = {
   LBL_PANEL_ALL: 'Thêm panel',
   LBL_PANEL_REMOVE: 'Xóa panel',
