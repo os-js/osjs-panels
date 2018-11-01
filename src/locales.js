@@ -27,6 +27,7 @@
  * @author  Anders Evenrud <andersevenrud@gmail.com>
  *          Nguyễn Anh Khoa <khoaakt@gmail.com>
             Julien Gomes Dias <abld@abld.info>
+            Filip Š <projects@filips.si>
  * @licence Simplified BSD License
  */
 
@@ -58,6 +59,16 @@ export const nb_NO = {
   LBL_PANEL_POSITION: 'Panelposisjon',
   LBL_SAVE_AND_LOG_OUT: 'Lagre Sessjon & Logg Ut',
   LBL_LOG_OUT: 'Logg Ut'
+};
+
+export const sl_SI = {
+  LBL_PANEL_ALL: 'Dodaj ploščo',
+  LBL_PANEL_REMOVE: 'Odstrani ploščo',
+  LBL_PANELITEM_ADD: 'Dodaj element plošče',
+  LBL_PANELITEM_REMOVE: 'Odstrani element plošče',
+  LBL_PANEL_POSITION: 'Položaj plošče',
+  LBL_SAVE_AND_LOG_OUT: 'Shranitev seje & Odjava',
+  LBL_LOG_OUT: 'Odjava'
 };
 
 export const vi_VN = {
