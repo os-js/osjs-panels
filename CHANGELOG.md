@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.2
+
+* Add Slovenian (sl_SI) translation (#6)
+
 ## 3.0.1
 
 * Removed @osjs/common
