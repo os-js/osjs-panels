@@ -37,7 +37,9 @@ const menuIcon = require('../logo-blue-32x32.png');
 const defaultIcon = require('../logo-blue-32x32.png');
 
 const getIcon = (m) => m.icon
-  ? `/apps/${m.name}/${m.icon}`
+  ? (m.icon.match(/^(https?:)\//)
+    ? m.icon
+    : `/apps/${m.name}/${m.icon}`)
   : defaultIcon;
 
 const getTitle = (locale, item) => locale
