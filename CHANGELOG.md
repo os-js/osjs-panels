@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.3
+
+* Menu now supports absolute url icons
+
 ## 3.0.2
 
 * Add Slovenian (sl_SI) translation (#6)
