@@ -36,10 +36,10 @@ import * as languages from '../locales';
 const menuIcon = require('../logo-blue-32x32.png');
 const defaultIcon = require('../logo-blue-32x32.png');
 
-const getIcon = (m) => m.icon
+const getIcon = (core, m) => m.icon
   ? (m.icon.match(/^(https?:)\//)
     ? m.icon
-    : `/apps/${m.name}/${m.icon}`)
+    : core.url(m.icon, m))
   : defaultIcon;
 
 const getTitle = (locale, item) => locale
@@ -66,7 +66,7 @@ const makeTree = (core, __, metadata) => {
     }
 
     categories[cat].items.push({
-      icon: getIcon(m),
+      icon: getIcon(core, m),
       label: getTitle(locale, m),
       data: {
         name: m.name
