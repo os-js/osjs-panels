@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.4
+
+* Fixed resource resolution in menu item
+
 ## 3.0.3
 
 * Menu now supports absolute url icons
