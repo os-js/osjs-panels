@@ -40,11 +40,11 @@ export const en_EN = {
   LBL_SAVE_AND_LOG_OUT: 'Save Session & Log Out',
   LBL_LOG_OUT: 'Log Out',
   
-  LBL_PANEL_WIN_CLOSE: "Close",
-  LBL_PANEL_WIN_RESTORE: "Restore",
-  LBL_PANEL_WIN_RAISE: "Raise",
-  LBL_PANEL_WIN_MAX: "Maximize",
-  LBL_PANEL_WIN_MIN: "Minimize"
+  LBL_PANEL_WIN_CLOSE: 'Close',
+  LBL_PANEL_WIN_RESTORE: 'Restore',
+  LBL_PANEL_WIN_RAISE: 'Raise',
+  LBL_PANEL_WIN_MAX: 'Maximize',
+  LBL_PANEL_WIN_MIN: 'Minimize'
 };
 
 export const fr_FR = {

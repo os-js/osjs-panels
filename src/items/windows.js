@@ -39,6 +39,7 @@ const mapWindow = win => {
     title: win.state.title,
     focused: win.state.focused,
     attributes: Object.assign({}, win.attributes),
+    state: Object.assign({}, win.state),
     raise: () => {
       win.raise();
       win.focus();
