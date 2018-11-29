@@ -137,7 +137,23 @@ export default class WindowsPanelItem extends PanelItem {
     const windows = state.windows.map(w => h('div', {
       'data-has-image': w.icon ? true : undefined,
       'data-focused': w.focused ? 'true' : 'false',
-      onclick: () => w.raise()
+      onclick: () => w.raise(),
+      oncontextmenu: ev => {
+        this.core.make('osjs/contextmenu').show({
+          position: ev.target,
+          menu: [
+            {
+              label: w.state.maximized ? 'Restore' : 'Maximize',
+              onclick: () => w.state.maximized ? w.restore() : w.maximize()
+            },
+            {
+              label: w.state.minimized ? 'Raise' : 'Minimize',
+              onclick: () => w.state.minimized ? w.raise() : w.minimize()
+            },
+            { label: 'Close', onclick: () => w.close() }
+          ]
+        });
+      }
     }, [
       h('span', {
         style: {
