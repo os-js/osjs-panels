@@ -39,7 +39,7 @@ const defaultIcon = require('../logo-blue-32x32.png');
 const getIcon = (core, m) => m.icon
   ? (m.icon.match(/^(https?:)\//)
     ? m.icon
-    : core.url(m.icon, m))
+    : core.url(m.icon, {}, m))
   : defaultIcon;
 
 const getTitle = (locale, item) => locale
