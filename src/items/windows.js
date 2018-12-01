@@ -151,18 +151,18 @@ export default class WindowsPanelItem extends PanelItem {
           position: ev.target,
           menu: [
             {
-              label: w.state.maximized ? _('LBL_PANEL_WIN_RESTORE') : _('LBL_PANEL_WIN_MAX'),
+              label: w.state.maximized ? _('LBL_RESTORE') : _('LBL_MAXIMIZE'),
               onclick: () => w.attributes.maximizable ? (w.state.maximized ? w.restore() : w.maximize()) : null,
               disabled: !w.attributes.maximizable
             },
             {
-              label: w.state.minimized ? _('LBL_PANEL_WIN_RAISE') : _('LBL_PANEL_WIN_MIN'),
+              label: w.state.minimized ? _('LBL_RAISE') : _('LBL_MINIMIZE'),
               onclick: () => w.attributes.minimizable ? (w.state.minimized ? w.raise() : w.minimize()) : null,
               disabled: !w.attributes.minimizable
             },
             { type: 'separator' },
             {
-              label: _('LBL_PANEL_WIN_CLOSE'),
+              label: _('LBL_CLOSE'),
               onclick: () => w.attributes.closeable ? w.close() : null,
               disabled: !w.attributes.closeable
             }
