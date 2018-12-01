@@ -43,7 +43,11 @@ const mapWindow = win => {
     raise: () => {
       win.raise();
       win.focus();
-    }
+    },
+    restore: () => win.restore(),
+    maximize: () => win.maximize(),
+    minimize: () => win.minimize(),
+    close: () => win.close()
   };
 };
 
@@ -142,20 +146,27 @@ export default class WindowsPanelItem extends PanelItem {
       'data-focused': w.focused ? 'true' : 'false',
       onclick: () => w.raise(),
       oncontextmenu: ev => {
+        ev.stopPropagation();
+        ev.preventDefault();
         this.core.make('osjs/contextmenu').show({
           position: ev.target,
           menu: [
             {
               label: w.state.maximized ? __('LBL_PANEL_WIN_RESTORE') : __('LBL_PANEL_WIN_MAX'),
-              onclick: () => w.state.maximized ? w.restore() : w.maximize(),
-              disabled: w.attributes.maximizable
+              onclick: () => w.attributes.maximizable ? (w.state.maximized ? w.restore() : w.maximize()) : null,
+              disabled: !w.attributes.maximizable
             },
             {
               label: w.state.minimized ? __('LBL_PANEL_WIN_RAISE') : __('LBL_PANEL_WIN_MIN'),
-              onclick: () => w.state.minimized ? w.raise() : w.minimize(),
-              disabled: w.attributes.minimizable
+              onclick: () => w.attributes.minimizable ? (w.state.minimized ? w.raise() : w.minimize()) : null,
+              disabled: !w.attributes.minimizable
             },
-            { label: __('LBL_PANEL_WIN_CLOSE'), onclick: () => w.close(), disabled: w.attributes.closeable }
+            { type: 'separator' },
+            {
+              label: __('LBL_PANEL_WIN_CLOSE'),
+              onclick: () => w.attributes.closeable ? w.close() : null,
+              disabled: !w.attributes.closeable
+            }
           ]
         });
       }
