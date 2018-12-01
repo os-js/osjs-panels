@@ -30,7 +30,6 @@
 
 import {h} from 'hyperapp';
 import PanelItem from '../panel-item';
-import * as languages from '../locales';
 
 const mapWindow = win => {
   return {
@@ -140,7 +139,7 @@ export default class WindowsPanelItem extends PanelItem {
   }
 
   render(state, actions) {
-    const __ = this.core.make('osjs/locale').translatable(languages);
+    const _ = this.core.make('osjs/locale').translate;
     const windows = state.windows.map(w => h('div', {
       'data-has-image': w.icon ? true : undefined,
       'data-focused': w.focused ? 'true' : 'false',
@@ -152,18 +151,18 @@ export default class WindowsPanelItem extends PanelItem {
           position: ev.target,
           menu: [
             {
-              label: w.state.maximized ? __('LBL_PANEL_WIN_RESTORE') : __('LBL_PANEL_WIN_MAX'),
+              label: w.state.maximized ? _('LBL_PANEL_WIN_RESTORE') : _('LBL_PANEL_WIN_MAX'),
               onclick: () => w.attributes.maximizable ? (w.state.maximized ? w.restore() : w.maximize()) : null,
               disabled: !w.attributes.maximizable
             },
             {
-              label: w.state.minimized ? __('LBL_PANEL_WIN_RAISE') : __('LBL_PANEL_WIN_MIN'),
+              label: w.state.minimized ? _('LBL_PANEL_WIN_RAISE') : _('LBL_PANEL_WIN_MIN'),
               onclick: () => w.attributes.minimizable ? (w.state.minimized ? w.raise() : w.minimize()) : null,
               disabled: !w.attributes.minimizable
             },
             { type: 'separator' },
             {
-              label: __('LBL_PANEL_WIN_CLOSE'),
+              label: _('LBL_PANEL_WIN_CLOSE'),
               onclick: () => w.attributes.closeable ? w.close() : null,
               disabled: !w.attributes.closeable
             }
