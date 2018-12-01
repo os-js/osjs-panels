@@ -35,6 +35,7 @@ import * as languages from '../locales';
 // const menuIcon = require('../logo-white-32x32.png');
 const menuIcon = require('../logo-blue-32x32.png');
 const defaultIcon = require('../logo-blue-32x32.png');
+const sortBy = fn => (a, b) => -(fn(a) < fn(b)) || +(fn(a) > fn(b));
 
 const getIcon = (core, m) => m.icon
   ? (m.icon.match(/^(https?:)\//)
@@ -90,7 +91,10 @@ const makeTree = (core, __, metadata) => {
     }
   }];
 
-  return [...Object.values(categories), ...system];
+  const sorted = Object.values(categories);
+  sorted.sort(sortBy(iter => iter.label));
+
+  return [...sorted, ...system];
 };
 
 /**
