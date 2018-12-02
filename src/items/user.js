@@ -28,9 +28,10 @@
  * @licence Simplified BSD License
  */
 
-import {h} from 'hyperapp';
+import {app,h} from 'hyperapp';
 import PanelItem from '../panel-item';
 import * as languages from '../locales';
+import Box from '@osjs/gui';
 
 export default class UserPanelItem extends PanelItem {
   
@@ -38,10 +39,25 @@ export default class UserPanelItem extends PanelItem {
     const _ = this.core.make('osjs/locale').translate;
     const __ = this.core.make('osjs/locale').translatable(languages);
     
+    const createUserWin = ev => {
+      var win = this.core.make('osjs/window',{
+        position: ev.target,
+        title: __('LBL_USER_SETTINGS'),
+        dimension: { width: 400, height: 120 },
+        id: 'UserSettingsWindow'
+      });
+      win.render($content => {
+         app({},{},(state,actions) => h(Box,{ grow: 1, padding: false },[
+           /* TODO: add user settings */
+         ]),$content);
+      });
+    };
+    
     const onclick = ev => {
       this.core.make('osjs/contextmenu').show({
         position: ev.target,
         menu: [
+          { label: __('LBL_USER_SETTINGS'), onclick: ev => createUserWin(ev) },
           { label: __('LBL_SAVE_AND_LOG_OUT'), onclick: async ev => {
             await this.core.make('osjs/session').save();
             this.core.make('osjs/auth').logout();
