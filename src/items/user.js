@@ -38,7 +38,7 @@ export default class UserPanelItem extends PanelItem {
   render(state, actions) {
     const _ = this.core.make('osjs/locale').translate;
     const __ = this.core.make('osjs/locale').translatable(languages);
-    var userSettings = this.core.make('osjs/settings').get('osjs/users')[this.core.make('osjs/auth').user().username] || {};
+    var userSettings = this.core.make('osjs/settings').get('osjs/users',undefined,{})[this.core.make('osjs/auth').user().username] || {};
     
     const createUserWin = ev => {
       var win = this.core.make('osjs/window',{
@@ -49,7 +49,13 @@ export default class UserPanelItem extends PanelItem {
         icon: userSettings.icon ? userSettings.icon : this.core.make('osjs/theme').icon('user-info')
       });
       win.render($content => {
-         app({},{},(state,actions) => h(Box,{ grow: 1, padding: false },[
+         app({userSettings},{
+           save: () => (state,actions) => {
+             var users = this.core.make('osjs/settings').get('osjs/users',undefined,{});
+             users[this.core.make('osjs/auth').user().username] = userSettings;
+             this.core.make('osjs/settings').set('osjs/users',undefined,users);
+           }
+         },(state,actions) => h(Box,{ grow: 1, padding: false },[
            /* TODO: add user settings */
          ]),$content);
       });
