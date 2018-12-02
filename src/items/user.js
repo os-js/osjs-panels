@@ -50,7 +50,7 @@ export default class UserPanelItem extends PanelItem {
       win.render($content => {
         app({userSettings},{
           save: () => (state,actions) => {
-            var users = this.core.make('osjs/settings').get('osjs/users',undefined,{});
+            let users = this.core.make('osjs/settings').get('osjs/users',undefined,{});
             users[this.core.make('osjs/auth').user().username] = userSettings;
             this.core.make('osjs/settings').set('osjs/users',undefined,users);
           }
