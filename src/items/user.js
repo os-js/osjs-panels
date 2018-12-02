@@ -82,7 +82,7 @@ export default class UserPanelItem extends PanelItem {
         style: {
           backgroundImage: userSettings.icon ? userSettings.icon : this.core.make('osjs/theme').icon('user-info')
         }
-      },this.core.make('osjs/auth').user().username);
+      },this.core.make('osjs/auth').user().username)
     ]);
   }
   
