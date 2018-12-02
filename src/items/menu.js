@@ -101,7 +101,7 @@ export default class MenuPanelItem extends PanelItem {
         menu: makeTree(this.core, __, [].concat(packages)),
         position: ev.target,
         callback: (item) => {
-          const {name, action} = item.data || {};
+          const {name} = item.data || {};
 
           if (name) {
             this.core.run(name);
