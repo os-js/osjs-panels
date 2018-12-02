@@ -44,7 +44,8 @@ export default class UserPanelItem extends PanelItem {
         position: ev.target,
         title: __('LBL_USER_SETTINGS'),
         dimension: { width: 400, height: 120 },
-        id: 'UserSettingsWindow'
+        id: 'UserSettingsWindow',
+        icon: this.core.make('osjs/theme').icon('user-info')
       });
       win.render($content => {
          app({},{},(state,actions) => h(Box,{ grow: 1, padding: false },[
