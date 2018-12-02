@@ -66,6 +66,7 @@ export default class UserPanelItem extends PanelItem {
         position: ev.target,
         menu: [
           { label: __('LBL_USER_SETTINGS'), onclick: ev => createUserWin(ev) },
+          { type: 'separator' },
           { label: __('LBL_SAVE_AND_LOG_OUT'), onclick: async ev => {
             await this.core.make('osjs/session').save();
             this.core.make('osjs/auth').logout();
@@ -81,8 +82,8 @@ export default class UserPanelItem extends PanelItem {
         style: {
           backgroundImage: userSettings.icon ? userSettings.icon : this.core.make('osjs/theme').icon('user-info')
         }
-      },this.core.make('osjs/auth').user().username)
-    ])
+      },this.core.make('osjs/auth').user().username);
+    ]);
   }
   
 }
