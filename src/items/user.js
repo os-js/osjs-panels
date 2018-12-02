@@ -38,6 +38,7 @@ export default class UserPanelItem extends PanelItem {
   render(state, actions) {
     const _ = this.core.make('osjs/locale').translate;
     const __ = this.core.make('osjs/locale').translatable(languages);
+    var userSettings = this.core.make('osjs/settings').get('osjs/users')[this.core.make('osjs/auth').user().username] || {};
     
     const createUserWin = ev => {
       var win = this.core.make('osjs/window',{
@@ -45,7 +46,7 @@ export default class UserPanelItem extends PanelItem {
         title: __('LBL_USER_SETTINGS'),
         dimension: { width: 400, height: 120 },
         id: 'UserSettingsWindow',
-        icon: this.core.make('osjs/theme').icon('user-info')
+        icon: userSettings.icon ? userSettings.icon : this.core.make('osjs/theme').icon('user-info')
       });
       win.render($content => {
          app({},{},(state,actions) => h(Box,{ grow: 1, padding: false },[
@@ -72,7 +73,7 @@ export default class UserPanelItem extends PanelItem {
       h('span', {
         onclick,
         style: {
-          backgroundImage: this.core.make('osjs/theme').icon('user-info') /* TODO: use user profile icon */
+          backgroundImage: userSettings.icon ? userSettings.icon : this.core.make('osjs/theme').icon('user-info')
         }
       },this.core.make('osjs/auth').user().username)
     ])
