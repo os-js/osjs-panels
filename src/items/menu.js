@@ -74,23 +74,7 @@ const makeTree = (core, __, metadata) => {
     });
   });
 
-  const system = [{
-    type: 'separator'
-  }, {
-    icon: defaultIcon,
-    label: __('LBL_SAVE_AND_LOG_OUT'),
-    data: {
-      action: 'saveAndLogOut'
-    }
-  }, {
-    icon: defaultIcon,
-    label: __('LBL_LOG_OUT'),
-    data: {
-      action: 'logOut'
-    }
-  }];
-
-  return [...Object.values(categories), ...system];
+  return [...Object.values(categories)];
 };
 
 /**
@@ -104,14 +88,6 @@ export default class MenuPanelItem extends PanelItem {
     const _ = this.core.make('osjs/locale').translate;
     const __ = this.core.make('osjs/locale').translatable(languages);
 
-    const logout = async (save) => {
-      if (save) {
-        await this.core.make('osjs/session').save();
-      }
-
-      this.core.make('osjs/auth').logout();
-    };
-
     const onclick = (ev) => {
       const packages = this.core.make('osjs/packages')
         .getPackages(m => (!m.type || m.type === 'application'));
@@ -124,10 +100,6 @@ export default class MenuPanelItem extends PanelItem {
 
           if (name) {
             this.core.run(name);
-          } else if (action === 'saveAndLogOut') {
-            logout(true);
-          } else if (action === 'logOut') {
-            logout(false);
           }
         }
       });
