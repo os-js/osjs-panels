@@ -31,6 +31,17 @@
  * @licence Simplified BSD License
  */
 
+
+export const de_DE = {
+  LBL_PANEL_ALL: 'Panel hinzufügen',
+  LBL_PANEL_REMOVE: 'Panel entfernen',
+  LBL_PANELITEM_ADD: 'Panelelemente hinzufügen',
+  LBL_PANELITEM_REMOVE: 'Panelelemente entfernen',
+  LBL_PANEL_POSITION: 'Panel-Position',
+  LBL_SAVE_AND_LOG_OUT: 'Session speichern & Abmelden',
+  LBL_LOG_OUT: 'Abmelden'
+};
+
 export const en_EN = {
   LBL_PANEL_ALL: 'Add panel',
   LBL_PANEL_REMOVE: 'Remove panel',

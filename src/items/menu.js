@@ -35,11 +35,13 @@ import * as languages from '../locales';
 // const menuIcon = require('../logo-white-32x32.png');
 const menuIcon = require('../logo-blue-32x32.png');
 const defaultIcon = require('../logo-blue-32x32.png');
+const sortBy = fn => (a, b) => -(fn(a) < fn(b)) || +(fn(a) > fn(b));
+const sortByLabel = iter => String(iter.label).toLowerCase();
 
 const getIcon = (core, m) => m.icon
   ? (m.icon.match(/^(https?:)\//)
     ? m.icon
-    : core.url(m.icon, m))
+    : core.url(m.icon, {}, m))
   : defaultIcon;
 
 const getTitle = (locale, item) => locale
@@ -74,6 +76,9 @@ const makeTree = (core, __, metadata) => {
     });
   });
 
+  Object.keys(categories).forEach(k => {
+    categories[k].items.sort(sortBy(sortByLabel));
+  });
   return [...Object.values(categories)];
 };
 

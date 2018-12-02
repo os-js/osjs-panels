@@ -1,5 +1,15 @@
 # Changelog for osjs-panels
 
+## 3.0.6
+
+* Sort menu category apps alphabetically (#9)
+* Sort menu categories alphabetically (#9)
+* Added German (de_DE) translations (#5)
+
+## 3.0.5
+
+* Updated some Core#url usage
+
 ## 3.0.4
 
 * Fixed resource resolution in menu item
