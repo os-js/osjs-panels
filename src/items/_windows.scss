@@ -38,19 +38,22 @@
     flex: initial;
     min-width: 4em;
 
-    &:not(:last-child) {
-      margin-right: $base-margin;
-    }
-
-    & > span {
-      display: block;
+    & > div {
       background-repeat: no-repeat;
       background-position: 0 50%;
       background-size: 1em;
       padding-left: $base-margin * 1.5;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+
+      & > span {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: $base-margin;
     }
   }
 }

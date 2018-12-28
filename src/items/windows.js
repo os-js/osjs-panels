@@ -170,16 +170,15 @@ export default class WindowsPanelItem extends PanelItem {
         });
       }
     }, [
-      h('span', {
+      h('div', {
         style: {
           backgroundImage: `url(${w.icon})`
         }
-      }, w.title || '(window)')
+      }, h('span', {}, w.title || '(window)'))
     ]));
 
     const special = state.launchers.map(name => h('div', {
-
-    }, h('span', {}, `Launching '${name}'`)));
+    }, h('div', {}, h('span', {}, `Launching '${name}'`))));
 
     const children = [...windows, ...special];
 
