@@ -1,5 +1,10 @@
 # Changelog for osjs-panels
 
+## 3.0.7
+
+* Updated some panel item DOM structure
+* Updated dependencies
+
 ## 3.0.6
 
 * Sort menu category apps alphabetically (#9)
