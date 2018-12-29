@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.8
+
+* Don't show panel menu when settings are locked
+
 ## 3.0.7
 
 * Updated some panel item DOM structure
