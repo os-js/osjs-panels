@@ -112,6 +112,11 @@ export default class Panel extends EventEmitter {
     this.$element.addEventListener('contextmenu', ev => {
       ev.preventDefault();
 
+      const disabled = this.core.config('desktop.lock');
+      if (disabled) {
+        return;
+      }
+
       this.core.make('osjs/contextmenu').show({
         position: ev,
         menu: [{
