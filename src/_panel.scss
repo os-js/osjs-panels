@@ -62,3 +62,10 @@
     }
   }
 }
+
+.osjs-root[data-dir="rtl"] {
+  .osjs-panel > .osjs-panel-item:not(:last-child) {
+    margin-right: 0;
+    margin-left: $base-margin;
+  }
+}
