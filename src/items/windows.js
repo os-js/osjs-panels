@@ -160,7 +160,7 @@ export default class WindowsPanelItem extends PanelItem {
               onclick: () => w.attributes.minimizable ? (w.state.minimized ? w.raise() : w.minimize()) : null,
               disabled: !w.attributes.minimizable
             },
-            { type: 'separator' },
+            {type: 'separator'},
             {
               label: _('LBL_CLOSE'),
               onclick: () => w.attributes.closeable ? w.close() : null,
