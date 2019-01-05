@@ -92,6 +92,8 @@ export default class WindowsPanelItem extends PanelItem {
 
           return {windows};
         }
+
+        return {};
       },
 
       change: win => state => {
