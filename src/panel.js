@@ -138,9 +138,7 @@ export default class Panel extends EventEmitter {
 
     this.items.forEach(item => item.init());
 
-    setTimeout(() => {
-      this.core.emit('osjs/panel:create', this);
-    }, 1);
+    this.emit('create');
   }
 
   /**

@@ -86,6 +86,12 @@ export default class PanelServiceProvider {
 
       create: (options) => {
         const panel = new Panel(this.core, options);
+
+        panel.on('destroy', () => this.core.emit('osjs/panel:destroy', panel, this.panels));
+        panel.on('create', () => setTimeout(() => {
+          this.core.emit('osjs/panel:create', panel, this.panels);
+        }, 1));
+
         this.panels.push(panel);
 
         if (this.inited) {
