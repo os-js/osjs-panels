@@ -1,5 +1,13 @@
 # Changelog for osjs-panels
 
+## 3.0.10
+
+* Updated panel event emitters (#14)
+* Updated README
+* ESlint pass
+* Updated eslintrc
+* Updated copyright(s)
+
 ## 3.0.9
 
 * Added RTL support
