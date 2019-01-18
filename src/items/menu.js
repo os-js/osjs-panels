@@ -165,6 +165,7 @@ export default class MenuPanelItem extends PanelItem {
     return super.render('menu', [
       h('div', {
         onclick,
+        oncreate: el => this.attachKeybindings(el),
         style: {
           backgroundImage: `url(${menuIcon})`
         }
