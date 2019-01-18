@@ -40,21 +40,21 @@ export default class UserPanelItem extends PanelItem {
     let userSettings = this.core.make('osjs/settings').get('osjs/users', undefined, {})[this.core.make('osjs/auth').user().username] || {};
 
     const createUserWin = ev => {
-      let win = this.core.make('osjs/window',{
+      let win = this.core.make('osjs/window', {
         position: ev.target,
         title: __('LBL_USER_SETTINGS'),
-        dimension: { width: 400, height: 120 },
+        dimension: {width: 400, height: 120},
         id: 'UserSettingsWindow',
         icon: userSettings.icon ? userSettings.icon : this.core.make('osjs/theme').icon('user-info')
       });
       win.render($content => {
-        app({ userSettings }, {
+        app({userSettings}, {
           save: () => (state,actions) => {
             let users = this.core.make('osjs/settings').get('osjs/users', undefined, {});
             users[this.core.make('osjs/auth').user().username] = userSettings;
             this.core.make('osjs/settings').set('osjs/users', undefined, users);
           }
-        },(state,actions) => h(Box, { grow: 1, padding: false }, [
+        },(state,actions) => h(Box, {grow: 1, padding: false}, [
           /* TODO: add user settings */
         ]),$content);
       });
@@ -64,13 +64,13 @@ export default class UserPanelItem extends PanelItem {
       this.core.make('osjs/contextmenu').show({
         position: ev.target,
         menu: [
-          { label: __('LBL_USER_SETTINGS'), onclick: ev => createUserWin(ev) },
-          { type: 'separator' },
-          { label: __('LBL_SAVE_AND_LOG_OUT'), onclick: async ev => {
+          {label: __('LBL_USER_SETTINGS'), onclick: ev => createUserWin(ev)},
+          {type: 'separator'},
+          {label: __('LBL_SAVE_AND_LOG_OUT'), onclick: async ev => {
             await this.core.make('osjs/session').save();
             this.core.make('osjs/auth').logout();
-          } },
-          { label: __('LBL_LOG_OUT'), onclick: ev => this.core.make('osjs/auth').logout() }
+          }},
+          {label: __('LBL_LOG_OUT'), onclick: ev => this.core.make('osjs/auth').logout()}
         ]
       });
     };
