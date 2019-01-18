@@ -57,17 +57,7 @@
     padding: $base-margin / 1.5;
   }
 
-  .panel-item--clickable {
-    cursor: pointer;
-    transition: all 0.1s ease-out;
-
-    &:hover {
-      color: #000;
-      background-color: #fff;
-    }
-  }
-
-  .panel-item--icon {
+  .osjs-panel-item--icon {
     display: flex;
     align-items: center;
 

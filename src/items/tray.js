@@ -56,7 +56,7 @@ export default class TrayPanelItem extends PanelItem {
     const child = entry => h('div', {
       onclick: ev => entry.onclick(ev, entry),
       oncontextmenu: ev => entry.oncontextmenu(ev, entry),
-      className: 'panel-item--clickable panel-item--icon'
+      className: 'osjs-panel-item--clickable osjs-panel-item--icon'
     }, h('img', {
       src: entry.icon,
       title: entry.title

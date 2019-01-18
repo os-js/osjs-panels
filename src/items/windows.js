@@ -171,7 +171,7 @@ export default class WindowsPanelItem extends PanelItem {
           ]
         });
       },
-      className: 'panel-item--clickable panel-item--icon'
+      className: 'osjs-panel-item--clickable osjs-panel-item--icon'
     }, [
       h('img', {
         src: w.icon,
