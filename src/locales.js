@@ -49,8 +49,7 @@ export const en_EN = {
   LBL_PANELITEM_REMOVE: 'Remove panelitem',
   LBL_PANEL_POSITION: 'Panel Position',
   LBL_SAVE_AND_LOG_OUT: 'Save Session & Log Out',
-  LBL_LOG_OUT: 'Log Out',
-  LBL_USER_SETTINGS: 'User Settings'
+  LBL_LOG_OUT: 'Log Out'
 };
 
 export const fr_FR = {
