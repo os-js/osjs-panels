@@ -110,7 +110,7 @@ const makeTree = (core, __, metadata) => {
 export default class MenuPanelItem extends PanelItem {
 
   init(state, actions) {
-    window.addEventListener('keydown', ev => {
+    const onkeydown = ev => {
       const checkKeys = this.core.config('panel.menu.keys', 'Alt+a').toLowerCase().split('+');
       const modifierNames =  ['ctrl', 'shift', 'alt', 'meta'];
       const keyName = String(ev.key).toLowerCase();
@@ -119,7 +119,9 @@ export default class MenuPanelItem extends PanelItem {
         return;
       }
       this.panel.$element.querySelector('.osjs-panelitem-menu').click();
-    });
+    };
+    window.addEventListener('keydown', onkeydown);
+    this.on('destroy', () => window.removeEventListener('keydown', onkeydown));
     return super.init(state, actions);
   }
 
