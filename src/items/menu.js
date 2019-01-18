@@ -109,7 +109,7 @@ const makeTree = (core, __, metadata) => {
  */
 export default class MenuPanelItem extends PanelItem {
 
-  init(state, actions) {
+  attachKeybindings(el) {
     const onkeydown = ev => {
       const checkKeys = (this.options.boundKey || 'Alt+a').toLowerCase().split('+');
       const modifierNames =  ['ctrl', 'shift', 'alt', 'meta'];
@@ -122,16 +122,11 @@ export default class MenuPanelItem extends PanelItem {
         return;
       }
 
-      this.panel.$element
-        .querySelector('.osjs-panel-item[data-name=menu] > d')
-        .click();
+      el.click();
     };
 
     window.addEventListener('keydown', onkeydown);
-
     this.on('destroy', () => window.removeEventListener('keydown', onkeydown));
-
-    return super.init(state, actions);
   }
 
   render(state, actions) {
