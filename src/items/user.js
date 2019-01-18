@@ -28,17 +28,17 @@
  * @licence Simplified BSD License
  */
 
-import {app,h} from 'hyperapp';
+import {app, h} from 'hyperapp';
 import PanelItem from '../panel-item';
 import * as languages from '../locales';
 import Box from '@osjs/gui';
 
 export default class UserPanelItem extends PanelItem {
-  
+
   render(state, actions) {
     const __ = this.core.make('osjs/locale').translatable(languages);
-    let userSettings = this.core.make('osjs/settings').get('osjs/users',undefined,{})[this.core.make('osjs/auth').user().username] || {};
-    
+    let userSettings = this.core.make('osjs/settings').get('osjs/users', undefined, {})[this.core.make('osjs/auth').user().username] || {};
+
     const createUserWin = ev => {
       let win = this.core.make('osjs/window',{
         position: ev.target,
@@ -48,18 +48,18 @@ export default class UserPanelItem extends PanelItem {
         icon: userSettings.icon ? userSettings.icon : this.core.make('osjs/theme').icon('user-info')
       });
       win.render($content => {
-        app({userSettings},{
+        app({ userSettings }, {
           save: () => (state,actions) => {
-            let users = this.core.make('osjs/settings').get('osjs/users',undefined,{});
+            let users = this.core.make('osjs/settings').get('osjs/users', undefined, {});
             users[this.core.make('osjs/auth').user().username] = userSettings;
-            this.core.make('osjs/settings').set('osjs/users',undefined,users);
+            this.core.make('osjs/settings').set('osjs/users', undefined, users);
           }
-        },(state,actions) => h(Box,{ grow: 1, padding: false },[
+        },(state,actions) => h(Box, { grow: 1, padding: false }, [
           /* TODO: add user settings */
         ]),$content);
       });
     };
-    
+
     const onclick = ev => {
       this.core.make('osjs/contextmenu').show({
         position: ev.target,
@@ -74,15 +74,14 @@ export default class UserPanelItem extends PanelItem {
         ]
       });
     };
-    
+
     return super.render('menu', [
       h('span', {
         onclick,
         style: {
           backgroundImage: userSettings.icon ? userSettings.icon : this.core.make('osjs/theme').icon('user-info')
         }
-      },this.core.make('osjs/auth').user().username)
+      }, this.core.make('osjs/auth').user().username)
     ]);
   }
-  
 }
