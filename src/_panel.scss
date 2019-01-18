@@ -31,7 +31,6 @@
 .osjs-panel {
   display: flex;
   min-height: 1em;
-  padding: $base-margin / 2;
   align-items: center;
   box-sizing: border-box;
   position: absolute;
@@ -55,10 +54,26 @@
     min-height: 1em;
     position: relative;
     box-sizing: border-box;
-    padding: $base-margin / 5;
+    padding: $base-margin / 1.5;
+  }
 
-    &:not(:last-child) {
-      margin-right: $base-margin;
+  .panel-item--clickable {
+    cursor: pointer;
+    transition: all .1s ease-out;
+
+    &:hover {
+      color: #000;
+      background-color: #fff;
+    }
+  }
+
+  .panel-item--icon {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 1em;
+      margin-right: .5em;
     }
   }
 }

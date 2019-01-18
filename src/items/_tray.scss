@@ -30,17 +30,14 @@
 
 .osjs-panel-item[data-name=tray] {
   display: flex;
+  padding: 0;
 
   & > div {
     flex: 1 1;
-
-    &:not(:last-child) {
-      margin-right: $base-margin / 2;
-    }
+    padding: $base-margin / 1.5 $base-margin / 3;
 
     & > img {
-      height: 1em;
-      cursor: pointer;
+      margin-right: 0;
       vertical-align: middle;
     }
   }

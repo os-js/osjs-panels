@@ -170,13 +170,14 @@ export default class WindowsPanelItem extends PanelItem {
             }
           ]
         });
-      }
+      },
+      className: 'panel-item--clickable panel-item--icon'
     }, [
-      h('div', {
-        style: {
-          backgroundImage: `url(${w.icon})`
-        }
-      }, h('span', {}, w.title || '(window)'))
+      h('img', {
+        src: w.icon,
+        alt: w.title || '(window)',
+      }),
+      h('span', {}, w.title || '(window)'),
     ]));
 
     const special = state.launchers.map(name => h('div', {

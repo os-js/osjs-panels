@@ -145,10 +145,14 @@ export default class MenuPanelItem extends PanelItem {
     return super.render('menu', [
       h('div', {
         onclick,
-        style: {
-          backgroundImage: `url(${menuIcon})`
-        }
-      }, h('span', {}, _('LBL_MENU')))
+        className: 'panel-item--clickable panel-item--icon'
+      }, [
+        h('img', {
+          src: menuIcon,
+          alt: _('LBL_MENU')
+        }),
+        h('span', {}, _('LBL_MENU'))
+      ])
     ]);
   }
 
