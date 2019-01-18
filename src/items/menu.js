@@ -109,6 +109,27 @@ const makeTree = (core, __, metadata) => {
  */
 export default class MenuPanelItem extends PanelItem {
 
+  attachKeybindings(el) {
+    const onkeydown = ev => {
+      const checkKeys = (this.options.boundKey || 'Alt+a').toLowerCase().split('+');
+      const modifierNames =  ['ctrl', 'shift', 'alt', 'meta'];
+      const keyName = String(ev.key).toLowerCase();
+      const validKeypress = checkKeys.every(k => modifierNames.indexOf(k) !== -1
+        ? ev[k + 'Key']
+        : keyName === k);
+      console.log(keyName, validKeypress);
+
+      if (!validKeypress) {
+        return;
+      }
+
+      el.click();
+    };
+
+    window.addEventListener('keydown', onkeydown);
+    this.on('destroy', () => window.removeEventListener('keydown', onkeydown));
+  }
+
   render(state, actions) {
     const _ = this.core.make('osjs/locale').translate;
     const __ = this.core.make('osjs/locale').translatable(languages);
@@ -145,6 +166,7 @@ export default class MenuPanelItem extends PanelItem {
     return super.render('menu', [
       h('div', {
         onclick,
+        oncreate: el => this.attachKeybindings(el),
         className: 'panel-item--clickable panel-item--icon'
       }, [
         h('img', {
