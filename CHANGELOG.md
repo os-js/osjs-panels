@@ -1,5 +1,10 @@
 # Changelog for osjs-panels
 
+## 3.0.11
+
+* Updated panelitem event registration
+* Added keybinding for opening application menu (#19) (Closes #16)
+
 ## 3.0.10
 
 * Updated panel event emitters (#14)
