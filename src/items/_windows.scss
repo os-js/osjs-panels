@@ -1,7 +1,7 @@
 /*
  * OS.js - JavaScript Cloud/Web Desktop Platform
  *
- * Copyright (c) 2011-2018, Anders Evenrud <andersevenrud@gmail.com>
+ * Copyright (c) 2011-2019, Anders Evenrud <andersevenrud@gmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -38,19 +38,29 @@
     flex: initial;
     min-width: 4em;
 
-    &:not(:last-child) {
-      margin-right: $base-margin;
-    }
-
-    & > span {
-      display: block;
+    & > div {
       background-repeat: no-repeat;
       background-position: 0 50%;
       background-size: 1em;
       padding-left: $base-margin * 1.5;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+
+      & > span {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
     }
+
+    &:not(:last-child) {
+      margin-right: $base-margin;
+    }
+  }
+}
+
+.osjs-root[data-dir="rtl"] {
+  .osjs-panel-item[data-name=windows] > div:not(:last-child) {
+    margin-right: 0;
+    margin-left: $base-margin;
   }
 }

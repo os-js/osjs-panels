@@ -1,7 +1,7 @@
 /*
  * OS.js - JavaScript Cloud/Web Desktop Platform
  *
- * Copyright (c) 2011-2018, Anders Evenrud <andersevenrud@gmail.com>
+ * Copyright (c) 2011-2019, Anders Evenrud <andersevenrud@gmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -86,6 +86,12 @@ export default class PanelServiceProvider {
 
       create: (options) => {
         const panel = new Panel(this.core, options);
+
+        panel.on('destroy', () => this.core.emit('osjs/panel:destroy', panel, this.panels));
+        panel.on('create', () => setTimeout(() => {
+          this.core.emit('osjs/panel:create', panel, this.panels);
+        }, 1));
+
         this.panels.push(panel);
 
         if (this.inited) {

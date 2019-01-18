@@ -1,7 +1,7 @@
 /*
  * OS.js - JavaScript Cloud/Web Desktop Platform
  *
- * Copyright (c) 2011-2018, Anders Evenrud <andersevenrud@gmail.com>
+ * Copyright (c) 2011-2019, Anders Evenrud <andersevenrud@gmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -125,13 +125,13 @@ export default class MenuPanelItem extends PanelItem {
     };
 
     return super.render('menu', [
-      h('span', {
+      h('div', {
         class: 'osjs-panelitem-menu',
         onclick,
         style: {
           backgroundImage: `url(${menuIcon})`
         }
-      }, _('LBL_MENU'))
+      }, h('span', {}, _('LBL_MENU')))
     ]);
   }
 
