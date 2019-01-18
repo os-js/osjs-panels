@@ -122,7 +122,9 @@ export default class MenuPanelItem extends PanelItem {
         return;
       }
 
-      this.panel.$element.querySelector('.osjs-panelitem-menu').click();
+      this.panel.$element
+        .querySelector('.osjs-panel-item[data-name=menu] > d')
+        .click();
     };
 
     window.addEventListener('keydown', onkeydown);
