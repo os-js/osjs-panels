@@ -114,7 +114,9 @@ export default class MenuPanelItem extends PanelItem {
       const checkKeys = (this.options.boundKey || 'Alt+a').toLowerCase().split('+');
       const modifierNames =  ['ctrl', 'shift', 'alt', 'meta'];
       const keyName = String(ev.key).toLowerCase();
-      const validKeypress = checkKeys.every(k => modifierNames.indexOf(k) !== -1 ? ev[k + 'Key'] : keyName === k);
+      const validKeypress = checkKeys.every(k => modifierNames.indexOf(k) !== -1
+        ? ev[k + 'Key']
+        : keyName === k);
 
       if (!validKeypress) {
         return;
