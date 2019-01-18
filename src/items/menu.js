@@ -115,13 +115,18 @@ export default class MenuPanelItem extends PanelItem {
       const modifierNames =  ['ctrl', 'shift', 'alt', 'meta'];
       const keyName = String(ev.key).toLowerCase();
       const validKeypress = checkKeys.every(k => modifierNames.indexOf(k) !== -1 ? ev[k + 'Key'] : keyName === k);
+      
       if (!validKeypress) {
         return;
       }
+      
       this.panel.$element.querySelector('.osjs-panelitem-menu').click();
     };
+    
     window.addEventListener('keydown', onkeydown);
+    
     this.on('destroy', () => window.removeEventListener('keydown', onkeydown));
+    
     return super.init(state, actions);
   }
 
