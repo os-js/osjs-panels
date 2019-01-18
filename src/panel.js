@@ -1,7 +1,7 @@
 /*
  * OS.js - JavaScript Cloud/Web Desktop Platform
  *
- * Copyright (c) 2011-2018, Anders Evenrud <andersevenrud@gmail.com>
+ * Copyright (c) 2011-2019, Anders Evenrud <andersevenrud@gmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -112,6 +112,11 @@ export default class Panel extends EventEmitter {
     this.$element.addEventListener('contextmenu', ev => {
       ev.preventDefault();
 
+      const disabled = this.core.config('desktop.lock');
+      if (disabled) {
+        return;
+      }
+
       this.core.make('osjs/contextmenu').show({
         position: ev,
         menu: [{
@@ -133,9 +138,7 @@ export default class Panel extends EventEmitter {
 
     this.items.forEach(item => item.init());
 
-    setTimeout(() => {
-      this.core.emit('osjs/panel:create', this);
-    }, 1);
+    this.emit('create');
   }
 
   /**

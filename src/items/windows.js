@@ -1,7 +1,7 @@
 /*
  * OS.js - JavaScript Cloud/Web Desktop Platform
  *
- * Copyright (c) 2011-2018, Anders Evenrud <andersevenrud@gmail.com>
+ * Copyright (c) 2011-2019, Anders Evenrud <andersevenrud@gmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -92,6 +92,8 @@ export default class WindowsPanelItem extends PanelItem {
 
           return {windows};
         }
+
+        return {};
       },
 
       change: win => state => {
@@ -160,7 +162,7 @@ export default class WindowsPanelItem extends PanelItem {
               onclick: () => w.attributes.minimizable ? (w.state.minimized ? w.raise() : w.minimize()) : null,
               disabled: !w.attributes.minimizable
             },
-            { type: 'separator' },
+            {type: 'separator'},
             {
               label: _('LBL_CLOSE'),
               onclick: () => w.attributes.closeable ? w.close() : null,
@@ -170,16 +172,15 @@ export default class WindowsPanelItem extends PanelItem {
         });
       }
     }, [
-      h('span', {
+      h('div', {
         style: {
           backgroundImage: `url(${w.icon})`
         }
-      }, w.title || '(window)')
+      }, h('span', {}, w.title || '(window)'))
     ]));
 
     const special = state.launchers.map(name => h('div', {
-
-    }, h('span', {}, `Launching '${name}'`)));
+    }, h('div', {}, h('span', {}, `Launching '${name}'`))));
 
     const children = [...windows, ...special];
 

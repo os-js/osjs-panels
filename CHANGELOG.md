@@ -1,5 +1,26 @@
 # Changelog for osjs-panels
 
+## 3.0.10
+
+* Updated panel event emitters (#14)
+* Updated README
+* ESlint pass
+* Updated eslintrc
+* Updated copyright(s)
+
+## 3.0.9
+
+* Added RTL support
+
+## 3.0.8
+
+* Don't show panel menu when settings are locked
+
+## 3.0.7
+
+* Updated some panel item DOM structure
+* Updated dependencies
+
 ## 3.0.6
 
 * Sort menu category apps alphabetically (#9)
