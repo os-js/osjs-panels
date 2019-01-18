@@ -111,7 +111,7 @@ export default class MenuPanelItem extends PanelItem {
 
   init(state, actions) {
     const onkeydown = ev => {
-      const checkKeys = this.core.config('panel.menu.keys', 'Alt+a').toLowerCase().split('+');
+      const checkKeys = (this.options.boundKey || 'Alt+a').toLowerCase().split('+');
       const modifierNames =  ['ctrl', 'shift', 'alt', 'meta'];
       const keyName = String(ev.key).toLowerCase();
       const validKeypress = checkKeys.every(k => modifierNames.indexOf(k) !== -1 ? ev[k + 'Key'] : keyName === k);
