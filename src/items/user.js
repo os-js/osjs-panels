@@ -54,9 +54,9 @@ export default class UserPanelItem extends PanelItem {
             users[this.core.make('osjs/auth').user().username] = userSettings;
             this.core.make('osjs/settings').set('osjs/users', undefined, users);
           }
-        },(state, actions) => h(Box, {grow: 1, padding: false}, [
+        }, (state, actions) => h(Box, {grow: 1, padding: false}, [
           /* TODO: add user settings */
-        ]),$content);
+        ]), $content);
       });
     };
 
