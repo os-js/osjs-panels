@@ -166,10 +166,14 @@ export default class MenuPanelItem extends PanelItem {
       h('div', {
         onclick,
         oncreate: el => this.attachKeybindings(el),
-        style: {
-          backgroundImage: `url(${menuIcon})`
-        }
-      }, h('span', {}, _('LBL_MENU')))
+        className: 'osjs-panel-item--clickable osjs-panel-item--icon'
+      }, [
+        h('img', {
+          src: menuIcon,
+          alt: _('LBL_MENU')
+        }),
+        h('span', {}, _('LBL_MENU'))
+      ])
     ]);
   }
 
