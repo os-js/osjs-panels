@@ -117,7 +117,6 @@ export default class MenuPanelItem extends PanelItem {
       const validKeypress = checkKeys.every(k => modifierNames.indexOf(k) !== -1
         ? ev[k + 'Key']
         : keyName === k);
-      console.log(keyName, validKeypress);
 
       if (!validKeypress) {
         return;

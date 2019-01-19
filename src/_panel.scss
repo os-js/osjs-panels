@@ -61,9 +61,9 @@
     display: flex;
     align-items: center;
 
-    img {
-      height: 1em;
-      margin-right: 0.5em;
+    > img {
+      height: $base-margin;
+      margin-right: $base-margin / 2;
     }
   }
 }
