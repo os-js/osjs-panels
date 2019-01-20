@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.12
+
+* Increase click target for panel items (#15)
+
 ## 3.0.11
 
 * Updated panelitem event registration
