@@ -61,9 +61,9 @@ export default class Panel extends EventEmitter {
     this.$element = null;
 
     this.options.items
-      .forEach(({name}) => {
+      .forEach(({name, options}) => {
         const c = core.make('osjs/panels').get(name);
-        this.addItem(new c(this.core, this));
+        this.addItem(new c(this.core, this, options || {}));
       });
   }
 
@@ -144,9 +144,8 @@ export default class Panel extends EventEmitter {
   /**
    * Add an item to the panel
    * @param {PanelItem} item The panel item instance
-   * @param {Object} [options] panel item options
    */
-  addItem(item, options = {}) {
+  addItem(item) {
     if (!(item instanceof PanelItem)) {
       throw new TypeError('Invalid panel item specified');
     }
