@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.13
+
+* Pass on options from panel item definitions (#22)
+
 ## 3.0.12
 
 * Increase click target for panel items (#15)
