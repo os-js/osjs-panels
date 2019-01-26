@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.14
+
+* Fixed an issue with window list not respecting visiblity attribute
+
 ## 3.0.13
 
 * Pass on options from panel item definitions (#22)
