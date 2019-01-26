@@ -62,14 +62,15 @@ export default class WindowsPanelItem extends PanelItem {
       return;
     }
 
-    const filter = win => !win.inited || !win.rendered ||
-      typeof win.attributes.visibility === 'undefined' ||
+    const filter = win => !win.inited || !win.rendered;
+    const filterVisibility = win => typeof win.attributes.visibility === 'undefined' ||
       win.attributes.visibility === 'global';
 
     const actions = super.init({
       launchers: [],
       windows: this.core.make('osjs/windows').list()
         .filter(filter)
+        .filter(filterVisibility)
         .map(mapWindow)
     }, {
       add: win => state => {
@@ -79,8 +80,9 @@ export default class WindowsPanelItem extends PanelItem {
         }
 
         const windows = state.windows
+          .concat([win])
           .filter(filter)
-          .concat([win]);
+          .filter(filterVisibility);
 
         return {windows};
       },
