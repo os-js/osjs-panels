@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.15
+
+* Fixed an issue with window list not initializing with correct windows
+
 ## 3.0.14
 
 * Fixed an issue with window list not respecting visiblity attribute
