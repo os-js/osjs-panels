@@ -142,12 +142,13 @@ export default class WindowsPanelItem extends PanelItem {
   }
 
   render(state, actions) {
-    const _ = this.core.make('osjs/locale').translate;
     const windows = state.windows.map(w => h('div', {
       'data-has-image': w.icon ? true : undefined,
       'data-focused': w.focused ? 'true' : 'false',
       onclick: () => w.raise(),
       oncontextmenu: ev => {
+        const _ = this.core.make('osjs/locale').translate;
+
         ev.stopPropagation();
         ev.preventDefault();
         this.core.make('osjs/contextmenu').show({
