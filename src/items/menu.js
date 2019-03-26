@@ -32,17 +32,16 @@ import {h} from 'hyperapp';
 import PanelItem from '../panel-item';
 import * as languages from '../locales';
 
-// const menuIcon = require('../logo-white-32x32.png');
-const menuIcon = require('../logo-blue-32x32.png');
 const defaultIcon = require('../logo-blue-32x32.png');
+
 const sortBy = fn => (a, b) => -(fn(a) < fn(b)) || +(fn(a) > fn(b));
 const sortByLabel = iter => String(iter.label).toLowerCase();
 
-const getIcon = (core, m) => m.icon
+const getIcon = (core, m, fallbackIcon) => m.icon
   ? (m.icon.match(/^(https?:)\//)
     ? m.icon
     : core.url(m.icon, {}, m))
-  : defaultIcon;
+  : fallbackIcon;
 
 const getTitle = (locale, item) => locale
   .translatableFlat(item.title, item.name);
@@ -50,7 +49,7 @@ const getTitle = (locale, item) => locale
 const getCategory = (locale, cat) => locale
   .translate(cat);
 
-const makeTree = (core, __, metadata) => {
+const makeTree = (core, icon, __, metadata) => {
   const configuredCategories = core.config('application.categories');
   const categories = {};
   const locale = core.make('osjs/locale');
@@ -61,14 +60,14 @@ const makeTree = (core, __, metadata) => {
 
     if (!categories[cat]) {
       categories[cat] = {
-        icon: found.icon ? {name: found.icon} : defaultIcon,
+        icon: found.icon ? {name: found.icon} : icon,
         label: getCategory(locale, found.label),
         items: []
       };
     }
 
     categories[cat].items.push({
-      icon: getIcon(core, m),
+      icon: getIcon(core, m, icon),
       label: getTitle(locale, m),
       data: {
         name: m.name
@@ -83,13 +82,13 @@ const makeTree = (core, __, metadata) => {
   const system = [{
     type: 'separator'
   }, {
-    icon: defaultIcon,
+    icon,
     label: __('LBL_SAVE_AND_LOG_OUT'),
     data: {
       action: 'saveAndLogOut'
     }
   }, {
-    icon: defaultIcon,
+    icon,
     label: __('LBL_LOG_OUT'),
     data: {
       action: 'logOut'
@@ -132,6 +131,7 @@ export default class MenuPanelItem extends PanelItem {
   render(state, actions) {
     const _ = this.core.make('osjs/locale').translate;
     const __ = this.core.make('osjs/locale').translatable(languages);
+    const icon = this.options.icon || defaultIcon;
 
     const logout = async (save) => {
       if (save) {
@@ -146,7 +146,7 @@ export default class MenuPanelItem extends PanelItem {
         .getPackages(m => (!m.type || m.type === 'application'));
 
       this.core.make('osjs/contextmenu').show({
-        menu: makeTree(this.core, __, [].concat(packages)),
+        menu: makeTree(this.core, icon, __, [].concat(packages)),
         position: ev.target,
         callback: (item) => {
           const {name, action} = item.data || {};
@@ -169,7 +169,7 @@ export default class MenuPanelItem extends PanelItem {
         className: 'osjs-panel-item--clickable osjs-panel-item--icon'
       }, [
         h('img', {
-          src: menuIcon,
+          src: icon,
           alt: _('LBL_MENU')
         }),
         h('span', {}, _('LBL_MENU'))
