@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.17
+
+* Added configurable icon in menu panelitem (closes #20)
+
 ## 3.0.16
 
 * Updated windows contextmenu
