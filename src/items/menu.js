@@ -108,26 +108,6 @@ const makeTree = (core, icon, __, metadata) => {
  */
 export default class MenuPanelItem extends PanelItem {
 
-  attachKeybindings(el) {
-    const onkeydown = ev => {
-      const checkKeys = (this.options.boundKey || 'Alt+a').toLowerCase().split('+');
-      const modifierNames =  ['ctrl', 'shift', 'alt', 'meta'];
-      const keyName = String(ev.key).toLowerCase();
-      const validKeypress = checkKeys.every(k => modifierNames.indexOf(k) !== -1
-        ? ev[k + 'Key']
-        : keyName === k);
-
-      if (!validKeypress) {
-        return;
-      }
-
-      el.click();
-    };
-
-    window.addEventListener('keydown', onkeydown);
-    this.on('destroy', () => window.removeEventListener('keydown', onkeydown));
-  }
-
   render(state, actions) {
     const _ = this.core.make('osjs/locale').translate;
     const __ = this.core.make('osjs/locale').translatable(languages);
@@ -162,10 +142,17 @@ export default class MenuPanelItem extends PanelItem {
       });
     };
 
+    const onmenuopen = () => {
+      const els = Array.from(this.panel.$element.querySelectorAll('.osjs-panel-item[data-name="menu"]'));
+      els.forEach(el => el.querySelector('.osjs-panel-item--icon').click());
+    };
+
+    this.core.on('osjs/desktop:keybinding:open-application-menu', onmenuopen);
+    this.on('destroy', () => this.core.off('osjs/desktop:keybinding:open-application-menu', onmenuopen));
+
     return super.render('menu', [
       h('div', {
         onclick,
-        oncreate: el => this.attachKeybindings(el),
         className: 'osjs-panel-item--clickable osjs-panel-item--icon'
       }, [
         h('img', {
