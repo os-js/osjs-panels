@@ -1,5 +1,10 @@
 # Changelog for osjs-panels
 
+## 3.0.18
+
+* Updated dependencies
+* Refactored keyboard shortcut handling (#16)
+
 ## 3.0.17
 
 * Added configurable icon in menu panelitem (closes #20)
