@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.19
+
+* Added support for disabling contextmenu (#23)
+
 ## 3.0.18
 
 * Updated dependencies
