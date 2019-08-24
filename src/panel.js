@@ -52,6 +52,7 @@ export default class Panel extends EventEmitter {
     this.options = Object.assign({}, {
       ontop: true,
       position: 'top',
+      contextmenu: true,
       items: []
     }, options);
 
@@ -112,7 +113,9 @@ export default class Panel extends EventEmitter {
     this.$element.addEventListener('contextmenu', ev => {
       ev.preventDefault();
 
-      const disabled = this.core.config('desktop.lock');
+      const disabled = this.core.config('desktop.lock') ||
+        this.core.config('desktop.disablePanelContextMenu');
+
       if (disabled) {
         return;
       }
