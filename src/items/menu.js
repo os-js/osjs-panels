@@ -138,7 +138,8 @@ export default class MenuPanelItem extends PanelItem {
           } else if (action === 'logOut') {
             logout(false);
           }
-        }
+        },
+        toggle: true
       });
     };
 
