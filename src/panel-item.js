@@ -53,6 +53,7 @@ export default class PanelItem extends EventEmitter {
     this.state = {};
     this.actions = {};
     this.inited = false;
+    this.$element = null;
   }
 
   /**
@@ -76,9 +77,13 @@ export default class PanelItem extends EventEmitter {
     this.inited = true;
     this.emit('init', this);
 
+    this.$element = document.createElement('div');
+    this.$element.classList.add('osjs-panel-item');
+    this.panel.$element.appendChild(this.$element);
+
     return app(state, actions, (state, actions) => {
       return this.render(state, actions);
-    }, this.panel.$element);
+    }, this.$element);
   }
 
   /**
@@ -88,9 +93,9 @@ export default class PanelItem extends EventEmitter {
    * @return {Node} A *virtual* node
    */
   render(name, children = []) {
+    this.$element.setAttribute('data-name', name);
     return h('div', {
-      className: 'osjs-panel-item',
-      'data-name': name
+      className: 'osjs-panel-item-content'
     }, children);
   }
 

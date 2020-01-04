@@ -32,7 +32,7 @@
   display: flex;
   padding: 0;
 
-  & > div {
+  & > .osjs-panel-item-content > div {
     flex: 1 1;
     padding: $base-margin / 1.5 $base-margin / 3;
 
@@ -44,7 +44,7 @@
 }
 
 .osjs-root[data-dir="rtl"] {
-  .osjs-panel-item[data-name=tray] > div:not(:last-child) {
+  .osjs-panel-item[data-name=tray] > .osjs-panel-item-content > div:not(:last-child) {
     margin-right: 0;
     margin-left: $base-margin;
   }
