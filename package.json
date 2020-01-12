@@ -32,7 +32,8 @@
   "author": "Anders Evenrud <andersevenrud@gmail.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "@osjs/event-emitter": "^1.0.8"
+    "@osjs/event-emitter": "^1.0.8",
+    "hyperapp": "^1.2.9"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -44,7 +45,6 @@
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
     "file-loader": "^3.0.1",
-    "hyperapp": "^1.2.9",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
