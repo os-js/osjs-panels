@@ -29,20 +29,11 @@
  */
 
 import './index.scss';
-import PanelServiceProvider from './src/provider';
-import WindowsPanelItem from './src/items/windows';
-import TrayPanelItem from './src/items/tray';
-import ClockPanelItem from './src/items/clock';
-import MenuPanelItem from './src/items/menu';
-import PanelItem from './src/panel-item';
-import Panel from './src/panel';
 
-export {
-  PanelServiceProvider,
-  PanelItem,
-  Panel,
-  WindowsPanelItem,
-  TrayPanelItem,
-  ClockPanelItem,
-  MenuPanelItem
-};
+export {default as PanelServiceProvider} from './src/provider';
+export {default as WindowsPanelItem} from './src/items/windows';
+export {default as TrayPanelItem} from './src/items/tray';
+export {default as ClockPanelItem} from './src/items/clock';
+export {default as MenuPanelItem} from './src/items/menu';
+export {default as PanelItem} from './src/panel-item';
+export {default as Panel} from './src/panel';
