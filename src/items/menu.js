@@ -31,8 +31,7 @@
 import {h} from 'hyperapp';
 import PanelItem from '../panel-item';
 import * as languages from '../locales';
-
-const defaultIcon = require('../logo-blue-32x32.png');
+import defaultIcon from '../logo-blue-32x32.png';
 
 const sortBy = fn => (a, b) => -(fn(a) < fn(b)) || +(fn(a) > fn(b));
 const sortByLabel = iter => String(iter.label).toLowerCase();
