@@ -1,5 +1,17 @@
 # Changelog for osjs-panels
 
+## 3.0.20
+
+* Added toggle to application menu (#26)
+* Updated a require to import
+* Now using @osjs/stylelint-config
+* Updated dotfiles
+* Updated webpack config
+* Updated dependencies
+* Moved some devDependencies to dependencies
+* Updated exports in main
+* Moved @osjs/event-emitter to (non-dev) dependencies.
+
 ## 3.0.19
 
 * Added support for disabling contextmenu (#23)
