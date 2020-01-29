@@ -36,49 +36,63 @@ import defaultIcon from '../logo-blue-32x32.png';
 const sortBy = fn => (a, b) => -(fn(a) < fn(b)) || +(fn(a) > fn(b));
 const sortByLabel = iter => String(iter.label).toLowerCase();
 
-const getIcon = (core, m, fallbackIcon) => m.icon
-  ? (m.icon.match(/^(https?:)\//)
-    ? m.icon
-    : core.url(m.icon, {}, m))
-  : fallbackIcon;
-
-const getTitle = (locale, item) => locale
-  .translatableFlat(item.title, item.name);
-
-const getCategory = (locale, cat) => locale
-  .translate(cat);
-
-const makeTree = (core, icon, __, metadata) => {
+const makeTree = (core, icon, __) => {
   const configuredCategories = core.config('application.categories');
-  const categories = {};
   const locale = core.make('osjs/locale');
 
-  metadata.filter(m => m.hidden !== true).forEach((m) => {
-    const cat = Object.keys(configuredCategories).find(c => c === m.category) || 'other';
-    const found = configuredCategories[cat];
+  const getIcon = (m, fallbackIcon) => m.icon
+    ? (m.icon.match(/^(https?:)\//)
+      ? m.icon
+      : core.url(m.icon, {}, m))
+    : fallbackIcon;
 
-    if (!categories[cat]) {
-      categories[cat] = {
-        icon: found.icon ? {name: found.icon} : icon,
-        label: getCategory(locale, found.label),
-        items: []
-      };
+  const getTitle = (item) => locale
+    .translatableFlat(item.title, item.name);
+
+  const getCategory = (cat) => locale
+    .translate(cat);
+
+  const createCategory = c => ({
+    icon: c.icon ? {name: c.icon} : icon,
+    label: getCategory(c.label),
+    items: []
+  });
+
+  const createItem = m => ({
+    icon: getIcon(m, icon),
+    label: getTitle(m),
+    data: {
+      name: m.name
     }
+  });
 
-    categories[cat].items.push({
-      icon: getIcon(core, m, icon),
-      label: getTitle(locale, m),
-      data: {
-        name: m.name
-      }
+  const createCategoryTree = (metadata) => {
+    const categories = {};
+
+    metadata
+      .filter(m => m.hidden !== true)
+      .forEach((m) => {
+        const cat = Object.keys(configuredCategories).find(c => c === m.category) || 'other';
+        const found = configuredCategories[cat];
+
+        if (!categories[cat]) {
+          categories[cat] = createCategory(found);
+        }
+
+        categories[cat].items.push(createItem(m));
+      });
+
+    Object.keys(categories).forEach(k => {
+      categories[k].items.sort(sortBy(sortByLabel));
     });
-  });
 
-  Object.keys(categories).forEach(k => {
-    categories[k].items.sort(sortBy(sortByLabel));
-  });
+    const result = Object.values(categories);
+    result.sort(sortBy(sortByLabel));
 
-  const system = [{
+    return result;
+  };
+
+  const createSystemMenu = () => ([{
     type: 'separator'
   }, {
     icon,
@@ -92,12 +106,17 @@ const makeTree = (core, icon, __, metadata) => {
     data: {
       action: 'logOut'
     }
-  }];
+  }]);
 
-  const sorted = Object.values(categories);
-  sorted.sort(sortBy(sortByLabel));
+  return (metadata) => {
+    const categories = createCategoryTree(metadata);
+    const system = createSystemMenu();
 
-  return [...sorted, ...system];
+    return [
+      ...categories,
+      ...system
+    ];
+  };
 };
 
 /**
@@ -120,12 +139,14 @@ export default class MenuPanelItem extends PanelItem {
       this.core.make('osjs/auth').logout();
     };
 
+    const makeMenu = makeTree(this.core, icon, __);
+
     const onclick = (ev) => {
       const packages = this.core.make('osjs/packages')
         .getPackages(m => (!m.type || m.type === 'application'));
 
       this.core.make('osjs/contextmenu').show({
-        menu: makeTree(this.core, icon, __, [].concat(packages)),
+        menu: makeMenu([].concat(packages)),
         position: ev.target,
         callback: (item) => {
           const {name, action} = item.data || {};
