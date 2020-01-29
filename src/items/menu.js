@@ -92,6 +92,27 @@ const makeTree = (core, icon, __) => {
     return result;
   };
 
+  const createFlatMenu = (metadata) => {
+    const pinned = [
+      ...core.config('application.pinned', [])
+      // TODO: User configurable pinned items
+    ];
+
+    const items = metadata
+      .filter(m => pinned.indexOf(m.name) !== -1)
+      .map(createItem);
+
+    if (items.length) {
+      items.sort(sortBy(sortByLabel));
+      return [
+        {type: 'separator'},
+        ...items
+      ];
+    }
+
+    return [];
+  };
+
   const createSystemMenu = () => ([{
     type: 'separator'
   }, {
@@ -110,10 +131,12 @@ const makeTree = (core, icon, __) => {
 
   return (metadata) => {
     const categories = createCategoryTree(metadata);
+    const flat = createFlatMenu(metadata);
     const system = createSystemMenu();
 
     return [
       ...categories,
+      ...flat,
       ...system
     ];
   };
