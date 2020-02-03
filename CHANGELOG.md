@@ -1,5 +1,11 @@
 # Changelog for osjs-panels
 
+## 3.0.21
+
+* Added support for showing applications in root menu (#29)
+* Updated menu generation
+* Updated copyright notices in preambles
+
 ## 3.0.20
 
 * Added toggle to application menu (#26)
