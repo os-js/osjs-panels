@@ -30,6 +30,7 @@
 
 import {h} from 'hyperapp';
 import PanelItem from '../panel-item';
+import * as languages from '../locales';
 
 const mapWindow = win => {
   return {
@@ -142,6 +143,10 @@ export default class WindowsPanelItem extends PanelItem {
   }
 
   render(state, actions) {
+    const __ = this.core
+      .make('osjs/locale')
+      .translatable(languages);
+
     const windows = state.windows.map(w => h('div', {
       'data-has-image': w.icon ? true : undefined,
       'data-focused': w.focused ? 'true' : 'false',
@@ -183,7 +188,7 @@ export default class WindowsPanelItem extends PanelItem {
     ]));
 
     const special = state.launchers.map(name => h('div', {
-    }, h('div', {}, h('span', {}, `Launching '${name}'`))));
+    }, h('div', {}, h('span', {}, __('LBL_LAUNCHING', name)))));
 
     const children = [...windows, ...special];
 
