@@ -92,3 +92,13 @@ export const vi_VN = {
   LBL_LOG_OUT: 'Đăng xuất'
 };
 
+export const pt_BR = {
+  LBL_PANEL_ALL: 'Adicionar painel',
+  LBL_PANEL_REMOVE: 'Remover painel',
+  LBL_PANELITEM_ADD: 'Adicionar item ao painel',
+  LBL_PANELITEM_REMOVE: 'Remover item do painel',
+  LBL_PANEL_POSITION: 'Posição do painel',
+  LBL_SAVE_AND_LOG_OUT: 'Salvar sessão & Sair',
+  LBL_LOG_OUT: 'Sair'
+};
+
