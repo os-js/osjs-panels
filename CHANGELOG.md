@@ -1,5 +1,10 @@
 # Changelog for osjs-panels
 
+## 3.0.22
+
+* Fixed icon positioning on RTL
+* Added missing locales
+
 ## 3.0.21
 
 * Added support for showing applications in root menu (#29)
