@@ -28,6 +28,7 @@
  *          Nguyễn Anh Khoa <khoaakt@gmail.com>
             Julien Gomes Dias <abld@abld.info>
             Filip Š <projects@filips.si>
+            Matheus Felipe <matheusfelipeog@gmail.com>
  * @licence Simplified BSD License
  */
 
@@ -101,6 +102,7 @@ export const pt_BR = {
   LBL_PANELITEM_REMOVE: 'Remover item do painel',
   LBL_PANEL_POSITION: 'Posição do painel',
   LBL_SAVE_AND_LOG_OUT: 'Salvar sessão & Sair',
-  LBL_LOG_OUT: 'Sair'
+  LBL_LOG_OUT: 'Sair',
+  LBL_LAUNCHING: 'Lançamento \'{0}\''
 };
 
