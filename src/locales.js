@@ -28,6 +28,7 @@
  *          Nguyễn Anh Khoa <khoaakt@gmail.com>
             Julien Gomes Dias <abld@abld.info>
             Filip Š <projects@filips.si>
+            Matheus Felipe <matheusfelipeog@gmail.com>
  * @licence Simplified BSD License
  */
 
