@@ -1,5 +1,10 @@
 # Changelog for osjs-panels
 
+## 3.0.23
+
+* Now using @osjs/dev-meta
+* Updated pt_BR translations (#36)
+
 ## 3.0.22
 
 * Fixed icon positioning on RTL
