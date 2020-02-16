@@ -92,7 +92,8 @@ export const vi_VN = {
   LBL_PANELITEM_REMOVE: 'Xóa mục panel',
   LBL_PANEL_POSITION: 'Vị trí panel',
   LBL_SAVE_AND_LOG_OUT: 'Lưu phiên & Đăng xuất',
-  LBL_LOG_OUT: 'Đăng xuất'
+  LBL_LOG_OUT: 'Đăng xuất',
+  LBL_LAUNCHING: 'Đang khởi động \'{0}\''
 };
 
 export const pt_BR = {
