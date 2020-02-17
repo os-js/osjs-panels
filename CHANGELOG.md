@@ -1,5 +1,10 @@
 # Changelog for osjs-panels
 
+## 3.0.24
+
+* Update vi_VN translation (#37)
+* Updated en_EN translations
+
 ## 3.0.23
 
 * Now using @osjs/dev-meta
