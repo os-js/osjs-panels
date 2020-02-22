@@ -11,6 +11,7 @@
     "dist/main.css",
     "dist/main.css.map",
     "dist/*.png",
+    "CHANGELOG.md",
     "README.md",
     "LICENSE"
   ],
