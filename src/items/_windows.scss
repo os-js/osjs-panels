@@ -48,10 +48,3 @@
     }
   }
 }
-
-.osjs-root[data-dir="rtl"] {
-  .osjs-panel-item[data-name=windows] > div:not(:last-child) {
-    margin-right: 0;
-    margin-left: $base-margin;
-  }
-}
