@@ -1,7 +1,7 @@
 {
   "name": "@osjs/panels",
-  "version": "3.0.25",
-  "description": "OS.js v3 Panels",
+  "version": "3.0.26",
+  "description": "OS.js Panels",
   "main": "dist/main.js",
   "module": "dist/main.js",
   "style": "dist/main.css",

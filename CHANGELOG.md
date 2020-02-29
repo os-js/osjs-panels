@@ -1,5 +1,12 @@
 # Changelog for osjs-panels
 
+## 3.0.25 - 2020-02-29
+
+* Updated README.md
+* Updates to RTL styles
+* Updated files section in package.json
+* Added timestamps to CHANGELOG.md
+
 ## 3.0.24 - 2020-02-17
 
 * Update vi_VN translation (#37)
