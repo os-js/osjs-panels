@@ -170,7 +170,7 @@ export default class MenuPanelItem extends PanelItem {
 
       this.core.make('osjs/contextmenu').show({
         menu: makeMenu([].concat(packages)),
-        position: ev.target,
+        position: this.$element,
         callback: (item) => {
           const {name, action} = item.data || {};
 

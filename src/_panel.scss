@@ -55,6 +55,10 @@
     position: relative;
     box-sizing: border-box;
     padding: $base-margin / 1.5;
+
+    & > div {
+      display: inherit;
+    }
   }
 
   .osjs-panel-item--icon {
