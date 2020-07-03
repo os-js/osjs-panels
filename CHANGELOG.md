@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.27 - 2020-07-03
+
+* Removed redundant DOM element in windows panelitem
+
 ## 3.0.25 - 2020-02-29
 
 * Updated README.md
