@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.28 - 2020-08-17
+
+* Added translation fallback
+
 ## 3.0.27 - 2020-07-03
 
 * Removed redundant DOM element in windows panelitem
