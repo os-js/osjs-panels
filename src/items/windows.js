@@ -143,9 +143,9 @@ export default class WindowsPanelItem extends PanelItem {
   }
 
   render(state, actions) {
-    const __ = this.core
-      .make('osjs/locale')
-      .translatable(languages);
+    const __ = this.core.has('osjs/locale')
+      ? this.core.make('osjs/locale').translatable(languages)
+      : s => s;
 
     const windows = state.windows.map(w => h('div', {
       'data-has-image': w.icon ? true : undefined,
