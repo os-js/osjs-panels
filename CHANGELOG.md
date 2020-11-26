@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.29 - 2020-11-26
+
+* Updated dependencies
+
 ## 3.0.28 - 2020-08-17
 
 * Added translation fallback
