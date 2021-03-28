@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.30 - 2021-03-28
+
+* Add turkish translations (#40)
+
 ## 3.0.29 - 2020-11-26
 
 * Updated dependencies
