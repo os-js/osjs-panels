@@ -107,3 +107,13 @@ export const pt_BR = {
   LBL_LAUNCHING: 'Lançamento \'{0}\''
 };
 
+export const tr_TR = {
+  LBL_PANEL_ALL: 'Panel ekle',
+  LBL_PANEL_REMOVE: 'Paneli sil',
+  LBL_PANELITEM_ADD: 'Panel nesnesi ekle',
+  LBL_PANELITEM_REMOVE: 'Panel nesnesini sil',
+  LBL_PANEL_POSITION: 'Panel Konumu',
+  LBL_SAVE_AND_LOG_OUT: 'Oturumu Kaydet & Çıkış Yap',
+  LBL_LOG_OUT: 'Çıkış Yap',
+  LBL_LAUNCHING: 'Başlatılıyor \'{0}\''
+};
