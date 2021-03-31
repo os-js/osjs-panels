@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.31 - 2021-03-31
+
+* Added Swedish (sv_SE) translations (#41)
+
 ## 3.0.30 - 2021-03-28
 
 * Add turkish translations (#40)
