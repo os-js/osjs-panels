@@ -54,6 +54,17 @@ export const en_EN = {
   LBL_LAUNCHING: 'Launching \'{0}\''
 };
 
+export const sv_SE = {
+  LBL_PANEL_ALL: 'Lägg till panel',
+  LBL_PANEL_REMOVE: 'Ta bort panel',
+  LBL_PANELITEM_ADD: 'Lägg till panelobjekt',
+  LBL_PANELITEM_REMOVE: 'Ta bort panelobjekt',
+  LBL_PANEL_POSITION: 'Panelposition',
+  LBL_SAVE_AND_LOG_OUT: 'Spara session och logga ut',
+  LBL_LOG_OUT: 'logga ut',
+  LBL_LAUNCHING: 'Startar \'{0}\''
+};
+
 export const fr_FR = {
   LBL_PANEL_ALL: 'Ajouter le panneau',
   LBL_PANEL_REMOVE: 'Supprimer le panneau',
