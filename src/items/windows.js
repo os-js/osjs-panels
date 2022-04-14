@@ -150,6 +150,7 @@ export default class WindowsPanelItem extends PanelItem {
     const windows = state.windows.map(w => h('div', {
       'data-has-image': w.icon ? true : undefined,
       'data-focused': w.focused ? 'true' : 'false',
+      'data-minimized': w.state.minimized ? 'true' : 'false',
       onclick: () => w.raise(),
       oncontextmenu: ev => {
         const _ = this.core.make('osjs/locale').translate;

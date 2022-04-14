@@ -37,7 +37,7 @@
     "hyperapp": "^1.2.10"
   },
   "devDependencies": {
-    "@osjs/dev-meta": "^2.0.0"
+    "@osjs/dev-meta": "^2.1.0"
   },
   "bugs": {
     "url": "https://github.com/os-js/osjs-panels/issues"
