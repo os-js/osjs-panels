@@ -1,5 +1,9 @@
 # Changelog for osjs-panels
 
+## 3.0.32 - 2021-04-14
+
+* Add minimized attribute to window list entries
+
 ## 3.0.31 - 2021-03-31
 
 * Added Swedish (sv_SE) translations (#41)
