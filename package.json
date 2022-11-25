@@ -2,23 +2,20 @@
   "name": "@osjs/panels",
   "version": "3.0.32",
   "description": "OS.js Panels",
-  "main": "dist/main.js",
+  "type": "module",
   "module": "dist/main.js",
   "style": "dist/main.css",
   "files": [
     "dist/main.js",
-    "dist/main.js.map",
     "dist/main.css",
-    "dist/main.css.map",
-    "dist/*.png",
     "CHANGELOG.md",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
     "test": "npm run eslint && npm run stylelint",
-    "build": "webpack",
-    "watch": "webpack --watch",
+    "build": "vite build",
+    "watch": "vite build --watch",
     "eslint": "eslint index.js 'src/**/*.js'",
     "stylelint": "stylelint index.scss src/**/*.scss",
     "prepublishOnly": "npm run test && rm ./dist/* && NODE_ENV=production npm run build"
@@ -37,7 +34,9 @@
     "hyperapp": "^1.2.10"
   },
   "devDependencies": {
-    "@osjs/dev-meta": "^2.1.0"
+    "@osjs/dev-meta": "^2.1.0",
+    "@types/npmcli__package-json": "^2.0.0",
+    "vite": "^3.2.4"
   },
   "bugs": {
     "url": "https://github.com/os-js/osjs-panels/issues"
